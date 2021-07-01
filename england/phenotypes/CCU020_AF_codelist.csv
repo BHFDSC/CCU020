@@ -1,0 +1,30 @@
+﻿code,term,system,codelist
+120041000000000,Atrial fibrillation with rapid ventricular response (disorder),SNOMED,atrial_fibrillation
+717011000000000,Atrial fibrillation monitoring verbal invitation (procedure),SNOMED,atrial_fibrillation
+716981000000000,Atrial fibrillation monitoring second letter (procedure),SNOMED,atrial_fibrillation
+717221000000000,Atrial fibrillation monitoring first letter (procedure),SNOMED,atrial_fibrillation
+711411000000000,Atrial fibrillation monitoring invitation (procedure),SNOMED,atrial_fibrillation
+300996004,Controlled atrial fibrillation (disorder),SNOMED,atrial_fibrillation
+1110850000000000,Quality and Outcomes Framework atrial fibrillation quality indicator-related care invitation (procedure),SNOMED,atrial_fibrillation
+15964900000000000,Atypical atrial flutter (disorder),SNOMED,atrial_fibrillation
+428076002,History of atrial flutter (situation),SNOMED,atrial_fibrillation
+314208002,Rapid atrial fibrillation (disorder),SNOMED,atrial_fibrillation
+427665004,Paroxysmal atrial flutter (disorder),SNOMED,atrial_fibrillation
+233911009,Non-rheumatic atrial fibrillation,SNOMED,atrial_fibrillation
+720448006,Typical atrial flutter (disorder),SNOMED,atrial_fibrillation
+134377004,Atrial fibrillation monitoring,SNOMED,atrial_fibrillation
+716721000000000,Atrial fibrillation monitoring telephone invitation (procedure),SNOMED,atrial_fibrillation
+248411000000000,Atrial fibrillation annual review (regime/therapy),SNOMED,atrial_fibrillation
+440028005,Permanent atrial fibrillation (disorder),SNOMED,atrial_fibrillation
+282825002,AF - Paroxysmal atrial fibrillation,SNOMED,atrial_fibrillation
+233910005,Lone atrial fibrillation (disorder),SNOMED,atrial_fibrillation
+426749004,Chronic atrial fibrillation (disorder),SNOMED,atrial_fibrillation
+716181000000000,Atrial fibrillation monitoring third letter (procedure),SNOMED,atrial_fibrillation
+425615007,Chronic atrial flutter (disorder),SNOMED,atrial_fibrillation
+195080001,Atrial fibrillation and flutter,SNOMED,atrial_fibrillation
+164889003,ECG: atrial fibrillation,SNOMED,atrial_fibrillation
+312442005,H/O: atrial fibrillation,SNOMED,atrial_fibrillation
+440059007,Persistent atrial fibrillation (disorder),SNOMED,atrial_fibrillation
+164890007,ECG: atrial flutter,SNOMED,atrial_fibrillation
+49436004,Atrial fibrillation,SNOMED,atrial_fibrillation
+5370000,Atrial flutter,SNOMED,atrial_fibrillation
