@@ -1,0 +1,132 @@
+﻿code,term,system,codelist
+413173009,Minutes from waking to first tobacco consumption (observable entity),SNOMED,smoking
+428041000000000,Occasional tobacco smoker (finding),SNOMED,smoking
+77176002,Smoker (finding),SNOMED,smoking
+428041000000000,Occasional tobacco smoker (finding),SNOMED,smoking
+446172000,Failed attempt to stop smoking (finding),SNOMED,smoking
+56578002,Moderate smoker (20 or less per day) (finding),SNOMED,smoking
+230064005,Very heavy cigarette smoker (finding),SNOMED,smoking
+266920004,Trivial cigarette smoker (less than one cigarette/day) (finding),SNOMED,smoking
+266924008,Ex-heavy cigarette smoker (20-39/day) (finding),SNOMED,smoking
+266925009,Ex-very heavy cigarette smoker (40+/day) (finding),SNOMED,smoking
+160605003,Heavy cigarette smoker (20-39 cigs/day) (finding),SNOMED,smoking
+160606002,Very heavy cigarette smoker (40+ cigs/day) (finding),SNOMED,smoking
+394873005,Not interested in stopping smoking (finding),SNOMED,smoking
+401159003,Reason for restarting smoking (observable entity),SNOMED,smoking
+266923002,Ex-moderate cigarette smoker (10-19/day) (finding),SNOMED,smoking
+266928006,Ex-cigarette smoker amount unknown (finding),SNOMED,smoking
+160605003,Heavy cigarette smoker (20-39 cigs/day) (finding),SNOMED,smoking
+160612007,Keeps trying to stop smoking (finding),SNOMED,smoking
+1092040000000000,Ex-very heavy smoker (40+/day) (finding),SNOMED,smoking
+1092070000000000,Ex-heavy smoker (20-39/day) (finding),SNOMED,smoking
+1092130000000000,Ex-trivial smoker (<1/day) (finding),SNOMED,smoking
+160617001,Stopped smoking (finding),SNOMED,smoking
+160625004,Date ceased smoking (observable entity),SNOMED,smoking
+401159003,Reason for restarting smoking (observable entity),SNOMED,smoking
+449868002,Smokes tobacco daily (finding),SNOMED,smoking
+53896009,Tolerant ex-smoker (finding),SNOMED,smoking
+735112005,Date ceased using moist tobacco (observable entity),SNOMED,smoking
+1092070000000000,Ex-heavy smoker (20-39/day) (finding),SNOMED,smoking
+1092110000000000,Ex-light smoker (1-9/day) (finding),SNOMED,smoking
+134406006,Smoking reduced (finding),SNOMED,smoking
+160604004,Moderate cigarette smoker (10-19 cigs/day) (finding),SNOMED,smoking
+56578002,Moderate smoker (20 or less per day) (finding),SNOMED,smoking
+56771006,Heavy smoker (over 20 per day) (finding),SNOMED,smoking
+82302008,Pipe smoker (finding),SNOMED,smoking
+836001000000000,Waterpipe tobacco consumption (observable entity),SNOMED,smoking
+1092130000000000,Ex-trivial smoker (<1/day) (finding),SNOMED,smoking
+160617001,Stopped smoking (finding),SNOMED,smoking
+160620009,Ex-pipe smoker (finding),SNOMED,smoking
+225934006,Smokes in bed (finding),SNOMED,smoking
+230056004,Cigarette consumption (observable entity),SNOMED,smoking
+230057008,Cigar consumption (observable entity),SNOMED,smoking
+160616005,Trying to give up smoking (finding),SNOMED,smoking
+203191000000000,Wants to stop smoking (finding),SNOMED,smoking
+225934006,Smokes in bed (finding),SNOMED,smoking
+65568007,Cigarette smoker (finding),SNOMED,smoking
+134406006,Smoking reduced (finding),SNOMED,smoking
+160604004,Moderate cigarette smoker (10-19 cigs/day) (finding),SNOMED,smoking
+230056004,Cigarette consumption (observable entity),SNOMED,smoking
+230057008,Cigar consumption (observable entity),SNOMED,smoking
+203191000000000,Wants to stop smoking (finding),SNOMED,smoking
+308438006,Smoking restarted (finding),SNOMED,smoking
+230059006,Occasional cigarette smoker (finding),SNOMED,smoking
+230063004,Heavy cigarette smoker (finding),SNOMED,smoking
+230062009,Moderate cigarette smoker (finding),SNOMED,smoking
+230063004,Heavy cigarette smoker (finding),SNOMED,smoking
+230062009,Moderate cigarette smoker (finding),SNOMED,smoking
+230065006,Chain smoker (finding),SNOMED,smoking
+160620009,Ex-pipe smoker (finding),SNOMED,smoking
+160621008,Ex-cigar smoker (finding),SNOMED,smoking
+59978006,Cigar smoker (finding),SNOMED,smoking
+65568007,Cigarette smoker (finding),SNOMED,smoking
+77176002,Smoker (finding),SNOMED,smoking
+82302008,Pipe smoker (finding),SNOMED,smoking
+1092110000000000,Ex-light smoker (1-9/day) (finding),SNOMED,smoking
+228486009,Time since stopped smoking (observable entity),SNOMED,smoking
+266921000,Ex-trivial cigarette smoker (<1/day) (finding),SNOMED,smoking
+228486009,Time since stopped smoking (observable entity),SNOMED,smoking
+266921000,Ex-trivial cigarette smoker (<1/day) (finding),SNOMED,smoking
+266922007,Ex-light cigarette smoker (1-9/day) (finding),SNOMED,smoking
+401201003,Cigarette pack-years (observable entity),SNOMED,smoking
+413173009,Minutes from waking to first tobacco consumption (observable entity),SNOMED,smoking
+266918002,Tobacco smoking consumption (observable entity),SNOMED,smoking
+446172000,Failed attempt to stop smoking (finding),SNOMED,smoking
+449868002,Smokes tobacco daily (finding),SNOMED,smoking
+230064005,Very heavy cigarette smoker (finding),SNOMED,smoking
+266920004,Trivial cigarette smoker (less than one cigarette/day) (finding),SNOMED,smoking
+735112005,Date ceased using moist tobacco (observable entity),SNOMED,smoking
+735128000,Ex-smoker for less than 1 year (finding),SNOMED,smoking
+160613002,Admitted tobacco consumption possibly untrue (finding),SNOMED,smoking
+160616005,Trying to give up smoking (finding),SNOMED,smoking
+160603005,Light cigarette smoker (1-9 cigs/day) (finding),SNOMED,smoking
+160606002,Very heavy cigarette smoker (40+ cigs/day) (finding),SNOMED,smoking
+266923002,Ex-moderate cigarette smoker (10-19/day) (finding),SNOMED,smoking
+266928006,Ex-cigarette smoker amount unknown (finding),SNOMED,smoking
+1092040000000000,Ex-very heavy smoker (40+/day) (finding),SNOMED,smoking
+1092090000000000,Ex-moderate smoker (10-19/day) (finding),SNOMED,smoking
+48031000000000,Ex-smoker for more than 1 year (finding),SNOMED,smoking
+492191000000000,Ex roll-up cigarette smoker (finding),SNOMED,smoking
+160603005,Light cigarette smoker (1-9 cigs/day) (finding),SNOMED,smoking
+160612007,Keeps trying to stop smoking (finding),SNOMED,smoking
+160613002,Admitted tobacco consumption possibly untrue (finding),SNOMED,smoking
+160619003,Rolls own cigarettes (finding),SNOMED,smoking
+266922007,Ex-light cigarette smoker (1-9/day) (finding),SNOMED,smoking
+266924008,Ex-heavy cigarette smoker (20-39/day) (finding),SNOMED,smoking
+1092030000000000,Ex-smoker amount unknown (finding),SNOMED,smoking
+1092090000000000,Ex-moderate smoker (10-19/day) (finding),SNOMED,smoking
+836001000000000,Waterpipe tobacco consumption (observable entity),SNOMED,smoking
+53896009,Tolerant ex-smoker (finding),SNOMED,smoking
+230058003,Pipe tobacco consumption (observable entity),SNOMED,smoking
+230060001,Light cigarette smoker (finding),SNOMED,smoking
+394871007,Thinking about stopping smoking (finding),SNOMED,smoking
+394873005,Not interested in stopping smoking (finding),SNOMED,smoking
+266925009,Ex-very heavy cigarette smoker (40+/day) (finding),SNOMED,smoking
+281018007,Ex-cigarette smoker (finding),SNOMED,smoking
+360900008,Aggressive ex-smoker (finding),SNOMED,smoking
+492191000000000,Ex roll-up cigarette smoker (finding),SNOMED,smoking
+160619003,Rolls own cigarettes (finding),SNOMED,smoking
+160625004,Date ceased smoking (observable entity),SNOMED,smoking
+160621008,Ex-cigar smoker (finding),SNOMED,smoking
+230058003,Pipe tobacco consumption (observable entity),SNOMED,smoking
+281018007,Ex-cigarette smoker (finding),SNOMED,smoking
+735128000,Ex-smoker for less than 1 year (finding),SNOMED,smoking
+230065006,Chain smoker (finding),SNOMED,smoking
+266918002,Tobacco smoking consumption (observable entity),SNOMED,smoking
+394871007,Thinking about stopping smoking (finding),SNOMED,smoking
+394872000,Ready to stop smoking (finding),SNOMED,smoking
+230059006,Occasional cigarette smoker (finding),SNOMED,smoking
+230060001,Light cigarette smoker (finding),SNOMED,smoking
+360890004,Intolerant ex-smoker (finding),SNOMED,smoking
+48031000000000,Ex-smoker for more than 1 year (finding),SNOMED,smoking
+8517006,Ex-smoker (finding),SNOMED,smoking
+56771006,Heavy smoker (over 20 per day) (finding),SNOMED,smoking
+59978006,Cigar smoker (finding),SNOMED,smoking
+266929003,Smoking started (finding),SNOMED,smoking
+394872000,Ready to stop smoking (finding),SNOMED,smoking
+8517006,Ex-smoker (finding),SNOMED,smoking
+1092030000000000,Ex-smoker amount unknown (finding),SNOMED,smoking
+360890004,Intolerant ex-smoker (finding),SNOMED,smoking
+360900008,Aggressive ex-smoker (finding),SNOMED,smoking
+266929003,Smoking started (finding),SNOMED,smoking
+308438006,Smoking restarted (finding),SNOMED,smoking
