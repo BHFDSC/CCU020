@@ -1,0 +1,53 @@
+﻿code,term,system,codelist
+194781004,Hypertensive heart and renal disease with both (congestive) heart failure and renal failure,SNOMED,hypertension_chads
+194779001,Hypertensive heart and renal disease with (congestive) heart failure,SNOMED,hypertension_chads
+194767001,Benign hypertensive heart disease with congestive cardiac failure,SNOMED,hypertension_chads
+83105008,Malignant hypertensive heart disease with congestive heart failure,SNOMED,hypertension_chads
+407567007,Patient on maximal tolerated antihypertensive therapy (finding),SNOMED,hypertension_chads
+129171000000000,Chronic kidney disease stage 3 due to hypertension,SNOMED,hypertension_chads
+5148006,Hypertensive heart disease with congestive heart failure,SNOMED,hypertension_chads
+48146000,Diastolic hypertension,SNOMED,hypertension_chads
+908651000000000,Stage 1 hypertension (National Institute for Health and Clinical Excellence 2011) with evidence of end organ damage (disorder),SNOMED,hypertension_chads
+428163005,Hypertensive left ventricular hypertrophy (disorder),SNOMED,hypertension_chads
+194783001,Secondary malignant renovascular hypertension,SNOMED,hypertension_chads
+846371000000000,Stage 2 hypertension (National Institute for Health and Clinical Excellence 2011) (disorder),SNOMED,hypertension_chads
+169465000,Hypertension induced by oral contraceptive pill,SNOMED,hypertension_chads
+443482000,Hypertensive urgency (disorder),SNOMED,hypertension_chads
+843841000000000,Severe hypertension (National Institute for Health and Clinical Excellence 2011) (disorder),SNOMED,hypertension_chads
+66610008,Malignant hypertensive heart AND renal disease,SNOMED,hypertension_chads
+471521000000000,[X]Hypertensive diseases (disorder),SNOMED,hypertension_chads
+371125006,Labile essential hypertension (disorder),SNOMED,hypertension_chads
+31992008,Secondary hypertension,SNOMED,hypertension_chads
+77970009,Benign hypertensive heart disease without congestive heart failure,SNOMED,hypertension_chads
+194785008,Secondary benign hypertension,SNOMED,hypertension_chads
+89242004,Malignant secondary hypertension,SNOMED,hypertension_chads
+706882009,Hypertensive crisis (disorder),SNOMED,hypertension_chads
+86234004,Hypertensive heart AND renal disease,SNOMED,hypertension_chads
+863191000000000,Nocturnal hypertension (disorder),SNOMED,hypertension_chads
+73410007,Benign secondary renovascular hypertension,SNOMED,hypertension_chads
+132721000000000,Hypertensive emergency,SNOMED,hypertension_chads
+56218007,Systolic hypertension,SNOMED,hypertension_chads
+38341003,Hypertensive disease,SNOMED,hypertension_chads
+78975002,Malignant essential hypertension,SNOMED,hypertension_chads
+712832005,Supine hypertension,SNOMED,hypertension_chads
+908631000000000,Stage 1 hypertension (National Institute for Health and Clinical Excellence 2011) without evidence of end organ damage (disorder),SNOMED,hypertension_chads
+843821000000000,Stage 1 hypertension (National Institute for Health and Clinical Excellence 2011) (disorder),SNOMED,hypertension_chads
+762463000,Diastolic hypertension co-occurrent with systolic hypertension (disorder),SNOMED,hypertension_chads
+36315003,Malignant hypertensive heart disease without congestive heart failure,SNOMED,hypertension_chads
+401047000,Hypertension treatment refused (context-dependent category),SNOMED,hypertension_chads
+129151000000000,Chronic kidney disease stage 4 due to hypertension,SNOMED,hypertension_chads
+194780003,Hypertensive heart and renal disease with renal failure,SNOMED,hypertension_chads
+443402002,Lifestyle education regarding hypertension (procedure),SNOMED,hypertension_chads
+194788005,Hypertension secondary to endocrine disorders,SNOMED,hypertension_chads
+66052004,Benign hypertensive heart AND renal disease,SNOMED,hypertension_chads
+54225002,Malignant hypertensive heart disease,SNOMED,hypertension_chads
+36221001,Benign hypertensive heart disease,SNOMED,hypertension_chads
+194791005,Hypertension secondary to drug,SNOMED,hypertension_chads
+275516004,Cardiomegaly - hypertensive,SNOMED,hypertension_chads
+1201005,Benign essential hypertension,SNOMED,hypertension_chads
+10725009,Benign hypertension,SNOMED,hypertension_chads
+845891000000000,Hypertension resistant to drug therapy (disorder),SNOMED,hypertension_chads
+64715009,Hypertensive heart disease,SNOMED,hypertension_chads
+123799005,Renovascular hypertension,SNOMED,hypertension_chads
+59621000,Essential hypertension,SNOMED,hypertension_chads
+70272006,Malignant hypertension,SNOMED,hypertension_chads

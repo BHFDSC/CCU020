@@ -1,0 +1,44 @@
+﻿code,term,system,codelist
+949901000000000,Chronic kidney disease with glomerular filtration rate category G3a and albuminuria category A2 (disorder),SNOMED,renal_disease_hasbled
+950061000000000,Chronic kidney disease with glomerular filtration rate category G3b and albuminuria category A1 (disorder),SNOMED,renal_disease_hasbled
+949621000000000,Chronic kidney disease with glomerular filtration rate category G2 and albuminuria category A3 (disorder),SNOMED,renal_disease_hasbled
+949401000000000,Chronic kidney disease with glomerular filtration rate category G1 and albuminuria category A1 (disorder),SNOMED,renal_disease_hasbled
+324211000000000,Chronic kidney disease stage 2 without proteinuria (disorder),SNOMED,renal_disease_hasbled
+324471000000000,Chronic kidney disease stage 4 without proteinuria (disorder),SNOMED,renal_disease_hasbled
+324281000000000,Chronic kidney disease stage 3 without proteinuria (disorder),SNOMED,renal_disease_hasbled
+324371000000000,Chronic kidney disease stage 3B with proteinuria (disorder),SNOMED,renal_disease_hasbled
+324501000000000,Chronic kidney disease stage 5 with proteinuria (disorder),SNOMED,renal_disease_hasbled
+324441000000000,Chronic kidney disease stage 4 with proteinuria (disorder),SNOMED,renal_disease_hasbled
+714152005,Chronic kidney disease stage 5 on dialysis (disorder),SNOMED,renal_disease_hasbled
+433146000,Chronic kidney disease stage 5 (disorder),SNOMED,renal_disease_hasbled
+431856006,Chronic kidney disease stage 2 (disorder),SNOMED,renal_disease_hasbled
+433144002,Chronic kidney disease stage 3 (disorder),SNOMED,renal_disease_hasbled
+129151000000000,Chronic kidney disease stage 4 due to hypertension (disorder),SNOMED,renal_disease_hasbled
+950101000000000,Chronic kidney disease with glomerular filtration rate category G3b and albuminuria category A3 (disorder),SNOMED,renal_disease_hasbled
+949921000000000,Chronic kidney disease with glomerular filtration rate category G3a and albuminuria category A3 (disorder),SNOMED,renal_disease_hasbled
+950311000000000,Chronic kidney disease with glomerular filtration rate category G5 and albuminuria category A3 (disorder),SNOMED,renal_disease_hasbled
+950291000000000,Chronic kidney disease with glomerular filtration rate category G5 and albuminuria category A2 (disorder),SNOMED,renal_disease_hasbled
+949421000000000,Chronic kidney disease with glomerular filtration rate category G1 and albuminuria category A2 (disorder),SNOMED,renal_disease_hasbled
+950231000000000,Chronic kidney disease with glomerular filtration rate category G4 and albuminuria category A3 (disorder),SNOMED,renal_disease_hasbled
+950251000000000,Chronic kidney disease with glomerular filtration rate category G5 and albuminuria category A1 (disorder),SNOMED,renal_disease_hasbled
+949561000000000,Chronic kidney disease with glomerular filtration rate category G2 and albuminuria category A2 (disorder),SNOMED,renal_disease_hasbled
+949481000000000,Chronic kidney disease with glomerular filtration rate category G1 and albuminuria category A3 (disorder),SNOMED,renal_disease_hasbled
+731000000000,Chronic kidney disease stage 3 due to type 2 diabetes mellitus (disorder),SNOMED,renal_disease_hasbled
+324411000000000,Chronic kidney disease stage 3B without proteinuria (disorder),SNOMED,renal_disease_hasbled
+324341000000000,Chronic kidney disease stage 3A without proteinuria (disorder),SNOMED,renal_disease_hasbled
+324151000000000,Chronic kidney disease stage 1 without proteinuria (disorder),SNOMED,renal_disease_hasbled
+129171000000000,Chronic kidney disease stage 3 due to hypertension (disorder),SNOMED,renal_disease_hasbled
+949521000000000,Chronic kidney disease with glomerular filtration rate category G2 and albuminuria category A1 (disorder),SNOMED,renal_disease_hasbled
+324121000000000,Chronic kidney disease stage 1 with proteinuria (disorder),SNOMED,renal_disease_hasbled
+324251000000000,Chronic kidney disease stage 3 with proteinuria (disorder),SNOMED,renal_disease_hasbled
+324181000000000,Chronic kidney disease stage 2 with proteinuria (disorder),SNOMED,renal_disease_hasbled
+324541000000000,Chronic kidney disease stage 5 without proteinuria (disorder),SNOMED,renal_disease_hasbled
+950081000000000,Chronic kidney disease with glomerular filtration rate category G3b and albuminuria category A2 (disorder),SNOMED,renal_disease_hasbled
+324311000000000,Chronic kidney disease stage 3A with proteinuria (disorder),SNOMED,renal_disease_hasbled
+950211000000000,Chronic kidney disease with glomerular filtration rate category G4 and albuminuria category A2 (disorder),SNOMED,renal_disease_hasbled
+950181000000000,Chronic kidney disease with glomerular filtration rate category G4 and albuminuria category A1 (disorder),SNOMED,renal_disease_hasbled
+700379002,Chronic kidney disease stage 3B (disorder),SNOMED,renal_disease_hasbled
+700378005,Chronic kidney disease stage 3A (disorder),SNOMED,renal_disease_hasbled
+431855005,Chronic kidney disease stage 1 (disorder),SNOMED,renal_disease_hasbled
+431857002,Chronic kidney disease stage 4 (disorder),SNOMED,renal_disease_hasbled
+949881000000000,Chronic kidney disease with glomerular filtration rate category G3a and albuminuria category A1 (disorder),SNOMED,renal_disease_hasbled

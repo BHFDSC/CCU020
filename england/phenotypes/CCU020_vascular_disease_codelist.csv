@@ -1,0 +1,93 @@
+﻿code,term,system,codelist
+63491006,Intermittent claudication,SNOMED,vascular_disease_chads
+127014009,Diabetic peripheral angiopathy,SNOMED,vascular_disease_chads
+201250006,Ischaemic ulcer diabetic foot,SNOMED,vascular_disease_chads
+233958001,Peripheral ischaemia,SNOMED,vascular_disease_chads
+233961000,Lower limb ischemia,SNOMED,vascular_disease_chads
+275520000,Claudication,SNOMED,vascular_disease_chads
+301755001,Ischemic foot,SNOMED,vascular_disease_chads
+307408003,Ischaemic toe,SNOMED,vascular_disease_chads
+314902007,Type II diabetes mellitus with peripheral angiopathy,SNOMED,vascular_disease_chads
+400047006,Peripheral vascular disease (disorder),SNOMED,vascular_disease_chads
+421365002,Peripheral circulatory disorder associated with type I diabetes mellitus (disorder),SNOMED,vascular_disease_chads
+421895002,Peripheral circulatory disorder associated with diabetes mellitus (disorder),SNOMED,vascular_disease_chads
+422166005,Peripheral circulatory disorder associated with type II diabetes mellitus (disorder),SNOMED,vascular_disease_chads
+422275004,Gangrene associated with diabetes mellitus (disorder),SNOMED,vascular_disease_chads
+31211000119101,Peripheral vascular disease due to type I diabetes,SNOMED,vascular_disease_chads
+399957001,Peripheral arterial occlusive disease (disorder),SNOMED,vascular_disease_chads
+836711000000108,Ischaemic lower limb pain at rest (finding),SNOMED,vascular_disease_chads
+755008,Old myocardial infarction,SNOMED,vascular_disease_chads
+10273003,Acute infarction of papillary muscle,SNOMED,vascular_disease_chads
+15990001,Acute myocardial infarction of posterolateral wall,SNOMED,vascular_disease_chads
+22298006,Myocardial infarction,SNOMED,vascular_disease_chads
+42531007,Microinfarct of heart,SNOMED,vascular_disease_chads
+52035003,Acute anteroapical myocardial infarction,SNOMED,vascular_disease_chads
+54329005,Acute myocardial infarction of anterior wall,SNOMED,vascular_disease_chads
+57054005,Acute myocardial infarction,SNOMED,vascular_disease_chads
+58612006,Acute myocardial infarction of lateral wall,SNOMED,vascular_disease_chads
+62695002,Acute anteroseptal myocardial infarction,SNOMED,vascular_disease_chads
+65547006,Acute myocardial infarction of inferolateral wall,SNOMED,vascular_disease_chads
+66189004,Postmyocardial infarction syndrome,SNOMED,vascular_disease_chads
+70211005,Acute myocardial infarction of anterolateral wall,SNOMED,vascular_disease_chads
+70422006,Acute subendocardial infarction,SNOMED,vascular_disease_chads
+73795002,Acute myocardial infarction of inferior wall,SNOMED,vascular_disease_chads
+76593002,Acute myocardial infarction of inferoposterior wall,SNOMED,vascular_disease_chads
+79009004,Acute myocardial infarction of septum,SNOMED,vascular_disease_chads
+129574000,Postoperative myocardial infarction,SNOMED,vascular_disease_chads
+161502000,H/O: myocardial infarct at less than 60,SNOMED,vascular_disease_chads
+161503005,H/O: myocardial infarct at greater than 60,SNOMED,vascular_disease_chads
+194802003,True posterior myocardial infarction,SNOMED,vascular_disease_chads
+194809007,Acute atrial infarction,SNOMED,vascular_disease_chads
+194856005,Subsequent myocardial infarction,SNOMED,vascular_disease_chads
+194857001,Subsequent myocardial infarction of anterior wall,SNOMED,vascular_disease_chads
+194858006,Subsequent myocardial infarction of inferior wall,SNOMED,vascular_disease_chads
+194862000,Haemopericardium as current complication following acute myocardial infarction,SNOMED,vascular_disease_chads
+194863005,Atrial septal defect as current complication following acute myocardial infarction,SNOMED,vascular_disease_chads
+194865003,Rupture of cardiac wall without hemopericardium as current complication following acute myocardial infarction,SNOMED,vascular_disease_chads
+194866002,Rupture of chordae tendinae as current complication following acute myocardial infarction,SNOMED,vascular_disease_chads
+194867006,Rupture of papillary muscle as current complication following acute myocardial infarction,SNOMED,vascular_disease_chads
+194868001,"Thrombosis of atrium, auricular appendage, and ventricle as current complications following acute myocardial infarction",SNOMED,vascular_disease_chads
+233838001,Acute posterior myocardial infarction,SNOMED,vascular_disease_chads
+233843008,Silent myocardial infarction,SNOMED,vascular_disease_chads
+233846000,Ventricular septal defect as current complication following acute myocardial infarction,SNOMED,vascular_disease_chads
+233847009,Cardiac rupture after acute myocardial infarction,SNOMED,vascular_disease_chads
+304914007,Acute Q wave myocardial infarction,SNOMED,vascular_disease_chads
+307140009,Acute non-Q wave infarction,SNOMED,vascular_disease_chads
+308065005,H/O: Myocardial infarction in last year,SNOMED,vascular_disease_chads
+311792005,Postoperative transmural myocardial infarction of anterior wall,SNOMED,vascular_disease_chads
+311793000,Postoperative transmural myocardial infarction of inferior wall,SNOMED,vascular_disease_chads
+311796008,Postoperative subendocardial myocardial infarction,SNOMED,vascular_disease_chads
+314116003,Post infarct angina,SNOMED,vascular_disease_chads
+315287002,Diabetes mellitus insulin-glucose infusion in acute myocardial infarction,SNOMED,vascular_disease_chads
+371068009,Myocardial infarction with complication (disorder),SNOMED,vascular_disease_chads
+398274000,Coronary artery thrombosis (disorder),SNOMED,vascular_disease_chads
+399211009,History of - myocardial infarction (context-dependent category),SNOMED,vascular_disease_chads
+401303003,Acute ST segment elevation myocardial infarction (disorder),SNOMED,vascular_disease_chads
+401314000,Acute non-ST segment elevation myocardial infarction (disorder),SNOMED,vascular_disease_chads
+428752002,Recent myocardial infarction (situation),SNOMED,vascular_disease_chads
+698593009,History of non-ST segment elevation myocardial infarction (situation),SNOMED,vascular_disease_chads
+15712881000119100,Acute ST segment elevation myocardial infarction of anterolateral wall (disorder),SNOMED,vascular_disease_chads
+15712921000119100,Acute ST segment elevation myocardial infarction of lateral wall (disorder),SNOMED,vascular_disease_chads
+233825009,Acute Q wave infarction - anteroseptal (disorder),SNOMED,vascular_disease_chads
+233826005,Acute non-Q wave infarction - anteroseptal (disorder),SNOMED,vascular_disease_chads
+233832000,Acute non-Q wave infarction - inferolateral (disorder),SNOMED,vascular_disease_chads
+285991000119100,Acute ST segment elevation myocardial infarction involving left main coronary artery (disorder),SNOMED,vascular_disease_chads
+394659003,Acute coronary syndrome (disorder),SNOMED,vascular_disease_chads
+394710008,First myocardial infarction (disorder),SNOMED,vascular_disease_chads
+428196007,Mixed myocardial ischemia and infarction (disorder),SNOMED,vascular_disease_chads
+703213009,Acute ST segment elevation myocardial infarction of inferior wall (disorder),SNOMED,vascular_disease_chads
+1089471000000100,Acute transmural myocardial infarction (disorder),SNOMED,vascular_disease_chads
+12238151000119100,Acute ST segment elevation myocardial infarction of inferoposterior wall (disorder),SNOMED,vascular_disease_chads
+233827001,Acute Q wave infarction - anterolateral (disorder),SNOMED,vascular_disease_chads
+233828006,Acute non-Q wave infarction - anterolateral (disorder),SNOMED,vascular_disease_chads
+233829003,Acute Q wave infarction - inferior (disorder),SNOMED,vascular_disease_chads
+233830008,Acute non-Q wave infarction - inferior (disorder),SNOMED,vascular_disease_chads
+233831007,Acute Q wave infarction - inferolateral (disorder),SNOMED,vascular_disease_chads
+233833005,Acute Q wave infarction - lateral (disorder),SNOMED,vascular_disease_chads
+233834004,Acute non-Q wave infarction - lateral (disorder),SNOMED,vascular_disease_chads
+233835003,Acute widespread myocardial infarction (disorder),SNOMED,vascular_disease_chads
+314207007,Non-Q wave myocardial infarction (disorder),SNOMED,vascular_disease_chads
+703164000,Acute ST segment elevation myocardial infarction of anterior wall (disorder),SNOMED,vascular_disease_chads
+703209002,Subsequent ST segment elevation myocardial infarction of inferior wall (disorder),SNOMED,vascular_disease_chads
+703211006,Subsequent ST segment elevation myocardial infarction (disorder),SNOMED,vascular_disease_chads
+703360004,Subsequent non-ST segment elevation myocardial infarction (disorder),SNOMED,vascular_disease_chads

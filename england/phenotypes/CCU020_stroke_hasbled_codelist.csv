@@ -1,0 +1,112 @@
+﻿code,term,system,codelist
+7713009,Intrapontine hemorrhage,SNOMED,stroke_hasbled
+49422009,Cortical hemorrhage,SNOMED,stroke_hasbled
+52201006,Internal capsule hemorrhage,SNOMED,stroke_hasbled
+75038005,Cerebellar hemorrhage,SNOMED,stroke_hasbled
+195165005,Basal ganglia hemorrhage,SNOMED,stroke_hasbled
+195167002,External capsule hemorrhage,SNOMED,stroke_hasbled
+195168007,"Intracerebral haemorrhage, intraventricular",SNOMED,stroke_hasbled
+195169004,"Intracerebral hemorrhage, multiple localized",SNOMED,stroke_hasbled
+230710000,Lobar cerebral hemorrhage,SNOMED,stroke_hasbled
+274100004,Cerebral hemorrhage,SNOMED,stroke_hasbled
+308128006,"Right sided intracerebral hemorrhage, unspecified",SNOMED,stroke_hasbled
+732923001,Hemorrhage of medulla oblongata (disorder),SNOMED,stroke_hasbled
+230712008,Lacunar hemorrhage (disorder),SNOMED,stroke_hasbled
+276722003,Intracerebellar and posterior fossa hemorrhage (disorder),SNOMED,stroke_hasbled
+95454007,Brain stem hemorrhage (disorder),SNOMED,stroke_hasbled
+1078001000000100,Haemorrhagic stroke (disorder),SNOMED,stroke_hasbled
+20908003,Subcortical cerebral hemorrhage (disorder),SNOMED,stroke_hasbled
+230709005,Massive supratentorial cerebral hemorrhage (disorder),SNOMED,stroke_hasbled
+230711001,Thalamic hemorrhage (disorder),SNOMED,stroke_hasbled
+71444005,Cerebral thrombosis,SNOMED,stroke_hasbled
+75543006,Cerebral embolism,SNOMED,stroke_hasbled
+78569004,Posterior inferior cerebellar artery syndrome,SNOMED,stroke_hasbled
+95457000,Brain stem infarction,SNOMED,stroke_hasbled
+95460007,Cerebellar infarction,SNOMED,stroke_hasbled
+195185009,Cerebral infarct due to thrombosis of precerebral arteries,SNOMED,stroke_hasbled
+195186005,Cerebral infarction due to embolism of precerebral arteries,SNOMED,stroke_hasbled
+195189003,Cerebral infarction due to thrombosis of cerebral arteries,SNOMED,stroke_hasbled
+195190007,Cerebral infarction due to embolism of cerebral arteries,SNOMED,stroke_hasbled
+195200006,Carotid artery syndrome hemispheric,SNOMED,stroke_hasbled
+195201005,Multiple and bilateral precerebral artery syndromes,SNOMED,stroke_hasbled
+195209007,Middle cerebral artery syndrome,SNOMED,stroke_hasbled
+195210002,Anterior cerebral artery syndrome,SNOMED,stroke_hasbled
+195211003,Posterior cerebral artery syndrome,SNOMED,stroke_hasbled
+230691006,CVA - cerebrovascular accident due to cerebral artery occlusion,SNOMED,stroke_hasbled
+230692004,Infarction - precerebral,SNOMED,stroke_hasbled
+230698000,Lacunar infarction,SNOMED,stroke_hasbled
+230699008,Pure motor lacunar syndrome,SNOMED,stroke_hasbled
+230700009,Pure sensory lacunar infarction,SNOMED,stroke_hasbled
+307766002,Left sided cerebral infarction,SNOMED,stroke_hasbled
+307767006,Right sided cerebral infarction,SNOMED,stroke_hasbled
+373606000,Occlusive stroke (disorder),SNOMED,stroke_hasbled
+413102000,Infarction of basal ganglia (disorder),SNOMED,stroke_hasbled
+432504007,Cerebral infarction (disorder),SNOMED,stroke_hasbled
+724424009,Cerebral ischemic stroke due to small artery occlusion (disorder),SNOMED,stroke_hasbled
+125081000119106,Cerebral infarction due to occlusion of precerebral artery,SNOMED,stroke_hasbled
+140921000119102,Ischaemic stroke without coma,SNOMED,stroke_hasbled
+1089421000000100,Cerebral infarction due to stenosis of cerebral artery (disorder),SNOMED,stroke_hasbled
+16000511000119100,Cerebrovascular accident due to occlusion of left middle cerebral artery (disorder),SNOMED,stroke_hasbled
+16002031000119100,Cerebrovascular accident due to thrombus of right middle cerebral artery (disorder),SNOMED,stroke_hasbled
+16002111000119100,Cerebrovascular accident due to thrombus of left middle cerebral artery (disorder),SNOMED,stroke_hasbled
+195230003,"Cerebral infarction due to cerebral venous thrombosis, non-pyogenic (disorder)",SNOMED,stroke_hasbled
+20059004,Occlusion of cerebral artery (disorder),SNOMED,stroke_hasbled
+230693009,Anterior cerebral circulation infarction (disorder),SNOMED,stroke_hasbled
+230696001,Posterior cerebral circulation infarction (disorder),SNOMED,stroke_hasbled
+230701008,Pure sensorimotor lacunar infarction (disorder),SNOMED,stroke_hasbled
+307363008,Multiple lacunar infarcts (disorder),SNOMED,stroke_hasbled
+329641000119104,Cerebrovascular accident due to thrombus of basilar artery (disorder),SNOMED,stroke_hasbled
+371041009,Embolic stroke (disorder),SNOMED,stroke_hasbled
+734383005,Thrombosis of left middle cerebral artery (disorder),SNOMED,stroke_hasbled
+87555007,Claude's syndrome (disorder),SNOMED,stroke_hasbled
+1089411000000100,Cerebral infarction due to occlusion of cerebral artery (disorder),SNOMED,stroke_hasbled
+195213000,Cerebellar stroke syndrome (disorder),SNOMED,stroke_hasbled
+230694003,Total anterior cerebral circulation infarction (disorder),SNOMED,stroke_hasbled
+230695002,Partial anterior cerebral circulation infarction (disorder),SNOMED,stroke_hasbled
+230702001,Lacunar ataxic hemiparesis (disorder),SNOMED,stroke_hasbled
+230703006,Dysarthria-clumsy hand syndrome (disorder),SNOMED,stroke_hasbled
+230704000,Multi-infarct state (disorder),SNOMED,stroke_hasbled
+24654003,Weber-Gubler syndrome (disorder),SNOMED,stroke_hasbled
+25133001,Completed stroke (disorder),SNOMED,stroke_hasbled
+276219001,Occipital cerebral infarction (disorder),SNOMED,stroke_hasbled
+276220007,Foville syndrome (disorder),SNOMED,stroke_hasbled
+276221006,Millard-Gubler syndrome (disorder),SNOMED,stroke_hasbled
+276222004,Top of basilar syndrome (disorder),SNOMED,stroke_hasbled
+413758000,Cardioembolic stroke (disorder),SNOMED,stroke_hasbled
+426107000,Acute lacunar infarction (disorder),SNOMED,stroke_hasbled
+734384004,Thrombosis of right middle cerebral artery (disorder),SNOMED,stroke_hasbled
+90099008,Subcortical leukoencephalopathy (disorder),SNOMED,stroke_hasbled
+195212005,Brainstem stroke syndrome,SNOMED,stroke_hasbled
+195213000,Cerebellar stroke syndrome,SNOMED,stroke_hasbled
+195216008,Left sided cerebral hemisphere cerebrovascular accident,SNOMED,stroke_hasbled
+195217004,Right sided CVA,SNOMED,stroke_hasbled
+230690007,CVA - Cerebrovascular accident,SNOMED,stroke_hasbled
+275434003,Stroke in the puerperium,SNOMED,stroke_hasbled
+16371781000119100,Cerebellar stroke (disorder),SNOMED,stroke_hasbled
+195209007,Middle cerebral artery syndrome (disorder),SNOMED,stroke_hasbled
+195210002,Anterior cerebral artery syndrome (disorder),SNOMED,stroke_hasbled
+195211003,Posterior cerebral artery syndrome (disorder),SNOMED,stroke_hasbled
+195212005,Brainstem stroke syndrome (disorder),SNOMED,stroke_hasbled
+195216008,Left sided cerebral hemisphere cerebrovascular accident (disorder),SNOMED,stroke_hasbled
+195217004,Right sided cerebral hemisphere cerebrovascular accident (disorder),SNOMED,stroke_hasbled
+230706003,Hemorrhagic cerebral infarction (disorder),SNOMED,stroke_hasbled
+230708002,Posterior cerebral circulation hemorrhagic infarction (disorder),SNOMED,stroke_hasbled
+281240008,Extension of cerebrovascular accident (disorder),SNOMED,stroke_hasbled
+297138001,Embolus of circle of Willis (disorder),SNOMED,stroke_hasbled
+444172003,Recurrent transient cerebral ischemic attack (disorder),SNOMED,stroke_hasbled
+230690007,Cerebrovascular accident (disorder),SNOMED,stroke_hasbled
+230707007,Anterior cerebral circulation hemorrhagic infarction (disorder),SNOMED,stroke_hasbled
+230713003,Stroke of uncertain pathology (disorder),SNOMED,stroke_hasbled
+230714009,Anterior circulation stroke of uncertain pathology (disorder),SNOMED,stroke_hasbled
+230715005,Posterior circulation stroke of uncertain pathology (disorder),SNOMED,stroke_hasbled
+275434003,Stroke in the puerperium (disorder),SNOMED,stroke_hasbled
+195206000,Intermittent cerebral ischaemia,SNOMED,stroke_hasbled
+230716006,Anterior circulation transient ischaemic attack,SNOMED,stroke_hasbled
+266257000,TIA,SNOMED,stroke_hasbled
+15258001,Subclavian steal syndrome (disorder),SNOMED,stroke_hasbled
+195199008,Vertebrobasilar artery syndrome (disorder),SNOMED,stroke_hasbled
+195205001,Impending cerebral ischemia (disorder),SNOMED,stroke_hasbled
+34781003,Vertebral artery syndrome (disorder),SNOMED,stroke_hasbled
+64009001,Basilar artery syndrome (disorder),SNOMED,stroke_hasbled
+751371000000107,Personal history of transient ischaemic attack (situation),SNOMED,stroke_hasbled
+230717002,Vertebrobasilar territory transient ischemic attack (disorder),SNOMED,stroke_hasbled

@@ -1,0 +1,16 @@
+﻿code,term,system,codelist
+160592001,Alcohol intake above recommended sensible limits (finding),SNOMED,alcohol_hasbled
+777631000000000,Increasing risk alcohol drinking (finding),SNOMED,alcohol_hasbled
+198421000000000,Hazardous alcohol use (finding),SNOMED,alcohol_hasbled
+160577002,Heavy drinker - 7-9u/day (finding),SNOMED,alcohol_hasbled
+228315001,Binge drinker (finding),SNOMED,alcohol_hasbled
+160578007,Very heavy drinker - greater than 9 units/day (finding),SNOMED,alcohol_hasbled
+228316000,Alcoholic binges exceeding sensible amounts (finding),SNOMED,alcohol_hasbled
+10939900000000000,Unhealthy alcohol drinking behavior (finding),SNOMED,alcohol_hasbled
+228317009,Alcoholic binges exceeding safe amounts (finding),SNOMED,alcohol_hasbled
+777651000000000,Higher risk alcohol drinking (finding),SNOMED,alcohol_hasbled
+198431000000000,Harmful alcohol use (finding),SNOMED,alcohol_hasbled
+228279004,Very heavy drinker (finding),SNOMED,alcohol_hasbled
+228281002,Problem drinker (finding),SNOMED,alcohol_hasbled
+228326007,Drinking binge (finding),SNOMED,alcohol_hasbled
+86933000,Heavy drinker (finding),SNOMED,alcohol_hasbled

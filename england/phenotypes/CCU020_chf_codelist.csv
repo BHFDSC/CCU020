@@ -1,0 +1,47 @@
+﻿code,term,system,codelist
+717491000000000,Excepted from heart failure quality indicators - informed dissent (finding),SNOMED,congestive_heart_failure_chads
+407596008,Echocardiogram shows left ventricular systolic dysfunction (finding),SNOMED,congestive_heart_failure_chads
+717531000000000,Heart failure monitoring telephone invitation (procedure),SNOMED,congestive_heart_failure_chads
+421704003,New York Heart Association Classification - Class II (finding),SNOMED,congestive_heart_failure_chads
+422293003,New York Heart Association Classification - Class IV (finding),SNOMED,congestive_heart_failure_chads
+717501000000000,Heart failure monitoring verbal invitation (procedure),SNOMED,congestive_heart_failure_chads
+430396006,Chronic systolic dysfunction of left ventricle (disorder),SNOMED,congestive_heart_failure_chads
+703272007,Heart failure with reduced ejection fraction (disorder),SNOMED,congestive_heart_failure_chads
+716971000000000,Heart failure monitoring first letter (procedure),SNOMED,congestive_heart_failure_chads
+716621000000000,Heart failure monitoring third letter (procedure),SNOMED,congestive_heart_failure_chads
+711461000000000,Heart failure monitoring invitation (procedure),SNOMED,congestive_heart_failure_chads
+233924009,Heart failure as a complication of care (disorder),SNOMED,congestive_heart_failure_chads
+10335000,Chronic right-sided heart failure (disorder),SNOMED,congestive_heart_failure_chads
+92506005,Biventricular congestive heart failure,SNOMED,congestive_heart_failure_chads
+314206003,Refractory heart failure (disorder),SNOMED,congestive_heart_failure_chads
+43736008,Rheumatic left ventricular failure,SNOMED,congestive_heart_failure_chads
+426611007,Congestive heart failure due to valvular disease (disorder),SNOMED,congestive_heart_failure_chads
+195114002,Acute left ventricular failure,SNOMED,congestive_heart_failure_chads
+206586007,Congenital cardiac failure,SNOMED,congestive_heart_failure_chads
+42343007,Congestive heart failure,SNOMED,congestive_heart_failure_chads
+56675007,Acute heart failure,SNOMED,congestive_heart_failure_chads
+79955004,Chronic cor pulmonale,SNOMED,congestive_heart_failure_chads
+426263006,Congestive heart failure due to left ventricular systolic dysfunction (disorder),SNOMED,congestive_heart_failure_chads
+134401001,Left ventricular systolic dysfunction,SNOMED,congestive_heart_failure_chads
+194779001,Hypertensive heart and renal disease with (congestive) heart failure,SNOMED,congestive_heart_failure_chads
+1110930000000000,Quality and Outcomes Framework heart failure quality indicator-related care invitation (procedure),SNOMED,congestive_heart_failure_chads
+194767001,Benign hypertensive heart disease with congestive cardiac failure,SNOMED,congestive_heart_failure_chads
+83105008,Malignant hypertensive heart disease with congestive heart failure,SNOMED,congestive_heart_failure_chads
+420913000,New York Heart Association Classification - Class III (finding),SNOMED,congestive_heart_failure_chads
+698592004,Asymptomatic left ventricular systolic dysfunction (disorder),SNOMED,congestive_heart_failure_chads
+420300004,New York Heart Association Classification - Class I (finding),SNOMED,congestive_heart_failure_chads
+194781004,Hypertensive heart and renal disease with both (congestive) heart failure and renal failure,SNOMED,congestive_heart_failure_chads
+48447003,Chronic heart failure (disorder),SNOMED,congestive_heart_failure_chads
+446221000,Heart failure with normal ejection fraction (disorder),SNOMED,congestive_heart_failure_chads
+717191000000000,Heart failure monitoring second letter (procedure),SNOMED,congestive_heart_failure_chads
+88805009,Chronic congestive heart failure,SNOMED,congestive_heart_failure_chads
+87837008,Chronic pulmonary heart disease,SNOMED,congestive_heart_failure_chads
+10633002,Acute congestive heart failure,SNOMED,congestive_heart_failure_chads
+195111005,Decompensated cardiac failure,SNOMED,congestive_heart_failure_chads
+195112003,Compensated cardiac failure,SNOMED,congestive_heart_failure_chads
+275514001,Impaired left ventricular function,SNOMED,congestive_heart_failure_chads
+367363000,Right ventricular failure,SNOMED,congestive_heart_failure_chads
+128404006,Right heart failure,SNOMED,congestive_heart_failure_chads
+85232009,Left heart failure,SNOMED,congestive_heart_failure_chads
+71892000,Cardiac asthma,SNOMED,congestive_heart_failure_chads
+84114007,Heart failure,SNOMED,congestive_heart_failure_chads

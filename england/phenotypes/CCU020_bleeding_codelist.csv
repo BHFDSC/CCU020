@@ -1,0 +1,97 @@
+﻿code,term,system,codelist
+D683,Haemorrhagic disorder due to circulating anticoagulants,ICD,bleeding_hasbled
+D69,Purpura and other haemorrhagic conditions,ICD,bleeding_hasbled
+D698,Other specified haemorrhagic conditions,ICD,bleeding_hasbled
+D699,"Haemorrhagic condition, unspecified",ICD,bleeding_hasbled
+I230,Haemopericardium as current complication following acute myocardial infarction,ICD,bleeding_hasbled
+I312,"Haemopericardium, not elsewhere classified",ICD,bleeding_hasbled
+I711,"Thoracic aortic aneurysm, ruptured",ICD,bleeding_hasbled
+I713,"Abdominal aortic aneurysm, ruptured",ICD,bleeding_hasbled
+I715,"Thoracoabdominal aortic aneurysm, ruptured",ICD,bleeding_hasbled
+I718,"Aortic aneurysm of unspecified site, ruptured",ICD,bleeding_hasbled
+H922,Otorrhagia,ICD,bleeding_hasbled
+N02,Recurrent and persistent haematuria,ICD,bleeding_hasbled
+N026,"Recurrent and persistent haematuria, dense deposit disease",ICD,bleeding_hasbled
+N028,"Recurrent and persistent haematuria, other",ICD,bleeding_hasbled
+N029,"Recurrent and persistent haematuria, unspecified",ICD,bleeding_hasbled
+N421,Congestion and haemorrhage of prostate,ICD,bleeding_hasbled
+N501,Vascular disorders of male genital organs,ICD,bleeding_hasbled
+N836,Haematosalpinx,ICD,bleeding_hasbled
+N837,Haematoma of broad ligament,ICD,bleeding_hasbled
+N857,Haematometra,ICD,bleeding_hasbled
+N897,Haematocolpos,ICD,bleeding_hasbled
+N898,Other specified noninflammatory disorders of vagina,ICD,bleeding_hasbled
+N908,Other specified noninflammatory disorders of vulva and perineum,ICD,bleeding_hasbled
+N921,Excessive and frequent menstruation with irregular cycle,ICD,bleeding_hasbled
+N925,Other specified irregular menstruation,ICD,bleeding_hasbled
+N926,"Irregular menstruation, unspecified",ICD,bleeding_hasbled
+N93,Other abnormal uterine and vaginal bleeding,ICD,bleeding_hasbled
+N938,Other specified abnormal uterine and vaginal bleeding,ICD,bleeding_hasbled
+N939,"Abnormal uterine and vaginal bleeding, unspecified",ICD,bleeding_hasbled
+N950,Postmenopausal bleeding,ICD,bleeding_hasbled
+R31,Unspecified haematuria,ICD,bleeding_hasbled
+R31X,Unspecified haematuria,ICD,bleeding_hasbled
+K625,Haemorrhage of anus and rectum,ICD,bleeding_hasbled
+K921,Melaena,ICD,bleeding_hasbled
+K922,"Gastrointestinal haemorrhage, unspecified",ICD,bleeding_hasbled
+I850,Oesophageal varices with bleeding,ICD,bleeding_hasbled
+I983,Oesophageal varices with bleeding in diseases classified elsewhere,ICD,bleeding_hasbled
+K250,Gastric ulcer ;  Acute with haemorrhage,ICD,bleeding_hasbled
+K252,Gastric ulcer ;  Acute with both haemorrhage and perforation,ICD,bleeding_hasbled
+K254,Gastric ulcer ;  Chronic or unspecified with haemorrhage,ICD,bleeding_hasbled
+K256,Gastric ulcer ;  Chronic or unspecified with both haemorrhage and perforation,ICD,bleeding_hasbled
+K260,Duodenal ulcer ;  Acute with haemorrhage,ICD,bleeding_hasbled
+K262,Duodenal ulcer ;  Acute with both haemorrhage and perforation,ICD,bleeding_hasbled
+K264,Duodenal ulcer ;  Chronic or unspecified with haemorrhage,ICD,bleeding_hasbled
+K266,Duodenal ulcer ;  Chronic or unspecified with both haemorrhage and perforation,ICD,bleeding_hasbled
+K270,"Peptic ulcer, site unspecified ;  Acute with haemorrhage",ICD,bleeding_hasbled
+K272,"Peptic ulcer, site unspecified ;  Acute with both haemorrhage and perforation",ICD,bleeding_hasbled
+K274,"Peptic ulcer, chronic or unspecified with haemorrhage",ICD,bleeding_hasbled
+K276,Chronic or unspecified with both haemorrhage and perforation,ICD,bleeding_hasbled
+K280,Gastrojejunal ulcer ;  Acute with haemorrhage,ICD,bleeding_hasbled
+K282,Gastrojejunal ulcer ;  Acute with both haemorrhage and perforation,ICD,bleeding_hasbled
+K284,Gastrojejunal ulcer ;  Chronic or unspecified with haemorrhage,ICD,bleeding_hasbled
+K286,Gastrojejunal ulcer ;  Chronic or unspecified with both haemorrhage and perforation,ICD,bleeding_hasbled
+K290,Acute haemorrhagic gastritis,ICD,bleeding_hasbled
+K661,Haemoperitoneum,ICD,bleeding_hasbled
+K920,Haematemesis,ICD,bleeding_hasbled
+I61,Intracerebral haemorrhage,ICD,bleeding_hasbled
+I610,"Intracerebral haemorrhage in hemisphere, subcortical",ICD,bleeding_hasbled
+I611,"Intracerebral haemorrhage in hemisphere, cortical",ICD,bleeding_hasbled
+I612,"Intracerebral haemorrhage in hemisphere, unspecified",ICD,bleeding_hasbled
+I613,Intracerebral haemorrhage in brain stem,ICD,bleeding_hasbled
+I614,Intracerebral haemorrhage in cerebellum,ICD,bleeding_hasbled
+I615,"Intracerebral haemorrhage, intraventricular",ICD,bleeding_hasbled
+I616,"Intracerebral haemorrhage, multiple localized",ICD,bleeding_hasbled
+I618,Other intracerebral haemorrhage,ICD,bleeding_hasbled
+I619,"Intracerebral haemorrhage, unspecified",ICD,bleeding_hasbled
+I60,Subarachnoid haemorrhage,ICD,bleeding_hasbled
+I600,Subarachnoid haemorrhage from carotid siphon and bifurcation,ICD,bleeding_hasbled
+I601,Subarachnoid haemorrhage from middle cerebral artery,ICD,bleeding_hasbled
+I602,Subarachnoid haemorrhage from anterior communicating artery,ICD,bleeding_hasbled
+I603,Subarachnoid haemorrhage from posterior communicating artery,ICD,bleeding_hasbled
+I604,Subarachnoid haemorrhage from basilar artery,ICD,bleeding_hasbled
+I605,Subarachnoid haemorrhage from vertebral artery,ICD,bleeding_hasbled
+I606,Subarachnoid haemorrhage from other intracranial arteries,ICD,bleeding_hasbled
+I607,"Subarachnoid haemorrhage from intracranial artery, unspecified",ICD,bleeding_hasbled
+I608,Other subarachnoid haemorrhage,ICD,bleeding_hasbled
+I609,"Subarachnoid haemorrhage, unspecified",ICD,bleeding_hasbled
+I62,Other nontraumatic intracranial haemorrhage,ICD,bleeding_hasbled
+I620,Subdural haemorrhage (acute)(nontraumatic),ICD,bleeding_hasbled
+I621,Nontraumatic extradural haemorrhage,ICD,bleeding_hasbled
+I629,"Intracranial haemorrhage (nontraumatic), unspecified",ICD,bleeding_hasbled
+S064,Epidural haemorrhage,ICD,bleeding_hasbled
+R233,Spontaneous ecchymoses,ICD,bleeding_hasbled
+R58,"Haemorrhage, not elsewhere classified",ICD,bleeding_hasbled
+R58X,"Haemorrhage, not elsewhere classified",ICD,bleeding_hasbled
+T81,Haemorrhage and haematoma complicating a procedure NEC,ICD,bleeding_hasbled
+H313,Choroidal haemorrhage and rupture,ICD,bleeding_hasbled
+H356,Retinal haemorrhage,ICD,bleeding_hasbled
+H431,Vitreous haemorrhage,ICD,bleeding_hasbled
+H450,Vitreous haemorrhage in diseases classified elsewhere,ICD,bleeding_hasbled
+J942,Haemothorax,ICD,bleeding_hasbled
+R040,Epistaxis,ICD,bleeding_hasbled
+R041,Haemorrhage from throat,ICD,bleeding_hasbled
+R042,Haemoptysis,ICD,bleeding_hasbled
+R048,Haemorrhage from other sites in respiratory passages,ICD,bleeding_hasbled
+R049,"Haemorrhage from respiratory passages, unspecified",ICD,bleeding_hasbled
