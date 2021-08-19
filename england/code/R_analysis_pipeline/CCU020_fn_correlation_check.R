@@ -1,4 +1,3 @@
-#add documentation
 library(corrplot)
 prep_correlation_check <- function(data, target_variables) {
   print("Building correlation check plot")

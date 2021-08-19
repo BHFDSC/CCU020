@@ -1,3 +1,4 @@
+#clear environment
 rm(list = ls())
 
 #Load packages
@@ -46,8 +47,7 @@ for (i in 1:length(categories)) {
   for (index in time_indices){
     
     #load the saved data as rds
-    #NOTE: have to load as rds to preserve levels in categorical factors
-    input_filename = paste("data/CCU020_base_cohort_", index, "_02_07_2021.rds", sep="")
+    input_filename = paste("data/CCU020_base_cohort_", index, "_16_08_2021.rds", sep="")
     data = readRDS(input_filename)
   
     #BUILD SUMMARY CHARACTERISTICS TABLE--------------------
@@ -93,6 +93,13 @@ for (i in 1:length(categories)) {
         return(clean_var)
       }
       
+      #create function to generate clean labels for mean and sd columns
+      clean_cont_text = function(col_mean, col_sd) {
+        clean_var = paste(round(col_mean, 1), " (+/- ", round(col_sd,1), ")", sep="")
+        return(clean_var)
+      }
+      
+      
       #individuals 
       n_split =  nrow(split_df)
       n_split_pct = nrow(split_df) / denominator
@@ -100,6 +107,8 @@ for (i in 1:length(categories)) {
       
       #age
       split_mean_age = mean(split_df$age_at_cohort_start)
+      age_sd = sd(split_df$age_at_cohort_start)
+      age_clean = clean_cont_text(split_mean_age, age_sd)
       
       #age categories
       age65_74_n = sum(split_df$age65_74) 
@@ -216,26 +225,6 @@ for (i in 1:length(categories)) {
       imd_10_pct = as.numeric(imd_10_n / nrow(split_df))
       imd_10_clean = clean_table_text(imd_10_n, imd_10_pct)
       
-      #yrs since af diagnosis
-      af_yrs_avg = mean(split_df$yrs_since_af_diagnosis)
-      
-      af_lt2yrs_n = sum(split_df$af_lt2yrs)
-      af_lt2yrs_pct = af_lt2yrs_n / nrow(split_df)
-      af_lt2yrs_clean = clean_table_text(af_lt2yrs_n, af_lt2yrs_pct)
-      
-      af_2_to_5yrs_n = sum(split_df$af_2_to_5yrs)
-      af_2_to_5yrs_pct = af_2_to_5yrs_n / nrow(split_df)
-      af_2_to_5yrs_clean = clean_table_text(af_2_to_5yrs_n, af_2_to_5yrs_pct)
-      
-      af_gte5yrs_n = sum(split_df$af_gte5yrs)
-      af_gte5yrs_pct = af_gte5yrs_n / nrow(split_df)
-      af_gte5yrs_clean = clean_table_text(af_gte5yrs_n, af_gte5yrs_pct)
-      
-      #fall
-      fall_n = sum(split_df$fall)
-      fall_pct = fall_n / nrow(split_df)
-      fall_clean = clean_table_text(fall_n, fall_pct)
-      
       #chadsvasc disease components 
       vascular_disease_chads_n = sum(split_df$vascular_disease_chads)
       vascular_disease_chads_pct = vascular_disease_chads_n / nrow(split_df)
@@ -259,6 +248,8 @@ for (i in 1:length(categories)) {
       
       #chadsvasc score
       chadsvasc_avg = mean(split_df$chadsvasc_score)
+      chadsvasc_sd = sd(split_df$chadsvasc_score)
+      chadsvasc_clean = clean_cont_text(chadsvasc_avg, chadsvasc_sd)
       
       split_chadsvasc_scores = split_df %>% group_by(chadsvasc_score) %>% summarise(n = n())
       chadsvasc_2_n = as.numeric(split_chadsvasc_scores[1,2])
@@ -292,6 +283,10 @@ for (i in 1:length(categories)) {
       chadsvasc_9_n = as.numeric(split_chadsvasc_scores[8,2])
       chadsvasc_9_pct = as.numeric(chadsvasc_9_n / nrow(split_df))
       chadsvasc_9_clean = clean_table_text(chadsvasc_9_n, chadsvasc_9_pct)
+      
+      chadsvasc_6_plus_n = nrow(split_df) - (chadsvasc_2_n + chadsvasc_3_n + chadsvasc_4_n + chadsvasc_5_n)
+      chadsvasc_6_plus_pct = 1 - (chadsvasc_2_pct + chadsvasc_3_pct + chadsvasc_4_pct + chadsvasc_5_pct)
+      chadsvasc_6_plus_clean = clean_table_text(chadsvasc_6_plus_n, chadsvasc_6_plus_pct)
       
       #hasbled disease components
       renal_disease_hasbled_n = sum(split_df$renal_disease_hasbled)
@@ -328,6 +323,8 @@ for (i in 1:length(categories)) {
       
       #hasbled score
       hasbled_avg = mean(split_df$hasbled_score)
+      hasbled_sd = sd(split_df$hasbled_score)
+      hasbled_clean = clean_cont_text(hasbled_avg, hasbled_sd)
       
       split_hasbled_scores = split_df %>% group_by(hasbled_score) %>% summarise(n = n())
       
@@ -371,12 +368,130 @@ for (i in 1:length(categories)) {
       hasbled_score_9_pct = as.numeric(hasbled_score_9_n / nrow(split_df))
       hasbled_score_9_clean = clean_table_text(hasbled_score_9_n, hasbled_score_9_pct)
       
+      hasbled_4_plus_n = nrow(split_df) - (hasbled_score_0_n + hasbled_score_1_n + hasbled_score_2_n + hasbled_score_3_n)
+      hasbled_4_plus_pct = 1 - (hasbled_score_0_pct + hasbled_score_1_pct + hasbled_score_2_pct + hasbled_score_3_pct)
+      hasbled_4_plus_clean = clean_table_text(hasbled_4_plus_n, hasbled_4_plus_pct)
+      
+      #yrs since af diagnosis
+      af_yrs_avg = mean(split_df$yrs_since_af_diagnosis)
+      af_yrs_sd = sd(split_df$yrs_since_af_diagnosis)
+      af_yrs_clean = clean_cont_text(af_yrs_avg, af_yrs_sd)
+      
+      af_lt2yrs_n = sum(split_df$af_lt2yrs)
+      af_lt2yrs_pct = af_lt2yrs_n / nrow(split_df)
+      af_lt2yrs_clean = clean_table_text(af_lt2yrs_n, af_lt2yrs_pct)
+      
+      af_2_to_5yrs_n = sum(split_df$af_2_to_5yrs)
+      af_2_to_5yrs_pct = af_2_to_5yrs_n / nrow(split_df)
+      af_2_to_5yrs_clean = clean_table_text(af_2_to_5yrs_n, af_2_to_5yrs_pct)
+      
+      af_gte5yrs_n = sum(split_df$af_gte5yrs)
+      af_gte5yrs_pct = af_gte5yrs_n / nrow(split_df)
+      af_gte5yrs_clean = clean_table_text(af_gte5yrs_n, af_gte5yrs_pct)
+      
+      #fall
+      fall_n = sum(split_df$fall)
+      fall_pct = fall_n / nrow(split_df)
+      fall_clean = clean_table_text(fall_n, fall_pct)
+      
+      #covid event
+      covid_event_n = sum(split_df$covid_infection)
+      covid_event_pct = covid_event_n / nrow(split_df)
+      covid_event_clean = clean_table_text(covid_event_n, covid_event_pct)
+      
+      #covid hospitalisation
+      covid_hospitalisation_n = sum(split_df$covid_hospitalisation)
+      covid_hospitalisation_pct = covid_hospitalisation_n / nrow(split_df)
+      covid_hospitalisation_clean = clean_table_text(covid_hospitalisation_n, covid_hospitalisation_pct)
+      
+      #covid hospitalisation primary dx
+      covid_hospitalisation_primary_dx_n = sum(split_df$covid_hospitalisation_primary_dx)
+      covid_hospitalisation_primary_dx_pct = covid_hospitalisation_primary_dx_n / nrow(split_df)
+      covid_hospitalisation_primary_dx_clean = clean_table_text(covid_hospitalisation_primary_dx_n, covid_hospitalisation_primary_dx_pct)
+      
+      #covid death
+      covid_death_n = sum(split_df$covid_death)
+      covid_death_pct = covid_death_n / nrow(split_df)
+      covid_death_clean = clean_table_text(covid_death_n, covid_death_pct)
+      
+      #covid death primary dx
+      covid_death_primary_dx_n = sum(split_df$covid_death_primary_dx)
+      covid_death_primary_dx_pct = covid_death_primary_dx_n / nrow(split_df)
+      covid_death_primary_dx_clean = clean_table_text(covid_death_primary_dx_n, covid_death_primary_dx_pct)
+      
+      #antihypertensives
+      antihypertensives_n = sum(split_df$antihypertensives)
+      antihypertensives_pct = antihypertensives_n / nrow(split_df)
+      antihypertensives_clean = clean_table_text(antihypertensives_n, antihypertensives_pct)
+      
+      #lipid regulating drugs
+      lipid_regulating_drugs_n = sum(split_df$lipid_regulating_drugs)
+      lipid_regulating_drugs_pct = lipid_regulating_drugs_n / nrow(split_df)
+      lipid_regulating_drugs_clean = clean_table_text(lipid_regulating_drugs_n, lipid_regulating_drugs_pct)
+      
+      #insulin
+      insulin_n = sum(split_df$insulin)
+      insulin_pct = insulin_n / nrow(split_df)
+      insulin_clean = clean_table_text(insulin_n, insulin_pct)
+      
+      #sulphonylurea
+      sulphonylurea_n = sum(split_df$sulphonylurea)
+      sulphonylurea_pct = sulphonylurea_n / nrow(split_df)
+      sulphonylurea_clean = clean_table_text(sulphonylurea_n, sulphonylurea_pct)
+      
+      #metformin
+      metformin_n = sum(split_df$metformin)
+      metformin_pct = metformin_n / nrow(split_df)
+      metformin_clean = clean_table_text(metformin_n, metformin_pct)
+      
+      #other_diabetic_drugs
+      other_diabetic_drugs_n = sum(split_df$other_diabetic_drugs)
+      other_diabetic_drugs_pct = other_diabetic_drugs_n / nrow(split_df)
+      other_diabetic_drugs_clean = clean_table_text(other_diabetic_drugs_n, other_diabetic_drugs_pct)
+      
+      #proton_pump_inhibitors
+      proton_pump_inhibitors_n = sum(split_df$proton_pump_inhibitors)
+      proton_pump_inhibitors_pct = proton_pump_inhibitors_n / nrow(split_df)
+      proton_pump_inhibitors_clean = clean_table_text(proton_pump_inhibitors_n, proton_pump_inhibitors_pct)
+      
+      #nsaids
+      nsaids_n = sum(split_df$nsaids)
+      nsaids_pct = nsaids_n / nrow(split_df)
+      nsaids_clean = clean_table_text(nsaids_n, nsaids_pct)
+      
+      #corticosteroids
+      corticosteroids_n = sum(split_df$corticosteroids)
+      corticosteroids_pct = corticosteroids_n / nrow(split_df)
+      corticosteroids_clean = clean_table_text(corticosteroids_n, corticosteroids_pct)
+      
+      #other_immunosuppressants
+      other_immunosuppressants_n = sum(split_df$other_immunosuppressants)
+      other_immunosuppressants_pct = other_immunosuppressants_n / nrow(split_df)
+      other_immunosuppressants_clean = clean_table_text(other_immunosuppressants_n, other_immunosuppressants_pct)
+      
+      #bmi
+      split_mean_bmi = mean(split_df$bmi_impute)
+      bmi_sd = sd(split_df$bmi_impute)
+      bmi_clean = clean_cont_text(split_mean_bmi, bmi_sd)
+      
+      #smoking status
+      smoking_status_n = sum(split_df$smoking_status)
+      smoking_status_pct = smoking_status_n / nrow(split_df)
+      smoking_status_clean = clean_table_text(smoking_status_n, smoking_status_pct)
+      
+      #vaccine status
+      vaccine_status_n = sum(split_df$vaccine_status)
+      vaccine_status_pct = vaccine_status_n / nrow(split_df)
+      vaccine_status_clean = clean_table_text(vaccine_status_n, vaccine_status_pct)
+      
       new_entry = data.frame(time_index = cohort_start_date, 
                              drug_category = split, 
                              individuals_n = n_split, 
                              individuals_pct = n_split_pct, 
                              individuals_clean = n_split_clean,
                              mean_age = split_mean_age,
+                             age_sd = age_sd,
+                             age_clean = age_clean,
                              age65_74_n = age65_74_n,
                              age65_74_pct = age65_74_pct, 
                              age65_74_clean = age65_74_clean,
@@ -474,6 +589,8 @@ for (i in 1:length(categories)) {
                              hypertension_chads_pct = hypertension_chads_pct,
                              hypertension_chads_clean = hypertension_chads_clean,
                              mean_chadsvasc = chadsvasc_avg,
+                             chadsvasc_sd = chadsvasc_sd, 
+                             chadsvasc_clean = chadsvasc_clean,
                              chadsvasc2 = chadsvasc_2_n,
                              chadsvasc2pct = chadsvasc_2_pct, 
                              chadsvasc_2_clean  = chadsvasc_2_clean,
@@ -498,6 +615,9 @@ for (i in 1:length(categories)) {
                              chadsvasc9n = chadsvasc_9_n,
                              chadsvasc9pct = chadsvasc_9_pct,
                              chadsvasc_9_clean = chadsvasc_9_clean,
+                             chadsvasc_6_plus_n = chadsvasc_6_plus_n, 
+                             chadsvasc_6_plus_pct = chadsvasc_6_plus_pct, 
+                             chadsvasc_6_plus_clean = chadsvasc_6_plus_clean,
                              renal_disease_hasbled_n = renal_disease_hasbled_n, 
                              renal_disease_hasbled_pct = renal_disease_hasbled_pct,
                              renal_disease_hasbled_clean = renal_disease_hasbled_clean,
@@ -520,6 +640,8 @@ for (i in 1:length(categories)) {
                              uncontrolled_hypertension_hasbled_pct = uncontrolled_hypertension_hasbled_pct,
                              uncontrolled_hypertension_hasbled_clean = uncontrolled_hypertension_hasbled_clean,
                              mean_hasbled = hasbled_avg,
+                             hasbled_sd = hasbled_sd, 
+                             hasbled_clean = hasbled_clean,
                              hasbled_score_0_n = hasbled_score_0_n,
                              hasbled_score_0_pct = hasbled_score_0_pct, 
                              hasbled_score_0_clean = hasbled_score_0_clean,
@@ -550,7 +672,12 @@ for (i in 1:length(categories)) {
                              hasbled_score_9_n = hasbled_score_9_n,
                              hasbled_score_9_pct = hasbled_score_9_pct,
                              hasbled_score_9_clean = hasbled_score_9_clean,
+                             hasbled_4_plus_n = hasbled_4_plus_n,
+                             hasbled_4_plus_pct = hasbled_4_plus_pct,
+                             hasbled_4_plus_clean = hasbled_4_plus_clean,
                              af_yrs_since_diagnosis_avg = af_yrs_avg, 
+                             af_yrs_sd = af_yrs_sd, 
+                             af_yrs_clean = af_yrs_clean,
                              af_lt2yrs_n = af_lt2yrs_n, 
                              af_lt2yrs_pct = af_lt2yrs_pct, 
                              af_lt2yrs_clean = af_lt2yrs_clean,
@@ -562,7 +689,61 @@ for (i in 1:length(categories)) {
                              af_gte5yrs_clean = af_gte5yrs_clean,
                              fall_n = fall_n,
                              fall_pct = fall_pct,
-                             fall_clean
+                             fall_clean = fall_clean,
+                             covid_event_n = covid_event_n, 
+                             covid_event_pct = covid_event_pct,
+                             covid_event_clean = covid_event_clean,
+                             covid_hospitalisation_n = covid_hospitalisation_n, 
+                             covid_hospitalisation_pct = covid_hospitalisation_pct,
+                             covid_hospitalisation_clean = covid_hospitalisation_clean,
+                             covid_hospitalisation_primary_dx_n = covid_hospitalisation_primary_dx_n, 
+                             covid_hospitalisation_primary_dx_pct = covid_hospitalisation_primary_dx_pct,
+                             covid_hospitalisation_primary_dx_clean = covid_hospitalisation_primary_dx_clean,
+                             covid_death_n = covid_death_n, 
+                             covid_death_pct = covid_death_pct,
+                             covid_death_clean = covid_death_clean,
+                             covid_death_primary_dx_n = covid_death_primary_dx_n, 
+                             covid_death_primary_dx_pct = covid_death_primary_dx_pct,
+                             covid_death_primary_dx_clean = covid_death_primary_dx_clean,
+                             antihypertensives_n = antihypertensives_n, 
+                             antihypertensives_pct = antihypertensives_pct,
+                             antihypertensives_clean = antihypertensives_clean,
+                             lipid_regulating_drugs_n = lipid_regulating_drugs_n, 
+                             lipid_regulating_drugs_pct = lipid_regulating_drugs_pct,
+                             lipid_regulating_drugs_clean = lipid_regulating_drugs_clean,
+                             insulin_n = insulin_n, 
+                             insulin_pct = insulin_pct,
+                             insulin_clean = insulin_clean,
+                             sulphonylurea_n = sulphonylurea_n, 
+                             sulphonylurea_pct = sulphonylurea_pct,
+                             sulphonylurea_clean = sulphonylurea_clean,
+                             metformin_n = metformin_n, 
+                             metformin_pct = metformin_pct, 
+                             metformin_clean = metformin_clean,
+                             other_diabetic_drugs_n = other_diabetic_drugs_n, 
+                             other_diabetic_drugs_pct = other_diabetic_drugs_pct, 
+                             other_diabetic_drugs_clean = other_diabetic_drugs_clean,
+                             proton_pump_inhibitors_n = proton_pump_inhibitors_n, 
+                             proton_pump_inhibitors_pct = proton_pump_inhibitors_pct,
+                             proton_pump_inhibitors_clean = proton_pump_inhibitors_clean,
+                             nsaids_n = nsaids_n, 
+                             nsaids_pct = nsaids_pct,
+                             nsaids_clean = nsaids_clean,
+                             corticosteroids_n = corticosteroids_n, 
+                             corticosteroids_pct = corticosteroids_pct, 
+                             corticosteroids_clean = corticosteroids_clean,
+                             other_immunosuppressants_n = other_immunosuppressants_n, 
+                             other_immunosuppressants_pct = other_immunosuppressants_pct, 
+                             other_immunosuppressants_clean = other_immunosuppressants_clean,
+                             mean_bmi = split_mean_bmi,
+                             bmi_sd = bmi_sd, 
+                             bmi_clean = bmi_clean,
+                             smoking_status_n = smoking_status_n,
+                             smoking_status_pct = smoking_status_pct,
+                             smoking_status_clean = smoking_status_clean,
+                             vaccine_status_n = vaccine_status_n, 
+                             vaccine_status_pct = vaccine_status_pct,
+                             vaccine_status_clean = vaccine_status_clean
       )
       
       table1_summary = rbind(table1_summary, new_entry)
@@ -579,21 +760,25 @@ for (i in 1:length(categories)) {
     #export polished summary table for manuscript
     table1_summary_t = setNames(data.frame(t(table1_summary[,-2])), table1_summary[,2])
   
-    target_rows = c("individuals_clean", "mean_age", "age65_74_clean", "agegte75_clean",
+    target_rows = c("individuals_clean", "age_clean", "age65_74_clean", "agegte75_clean",
                     "female_clean", "eth_white_clean", "eth_asian_clean", "eth_black_clean",
                     "eth_mixed_clean", "eth_other_clean", "reg_se_clean", "reg_nw_clean", "reg_ee_clean",
                     "reg_sw_clean", "reg_yh_clean", "reg_wm_clean", "reg_em_clean", "reg_ln_clean", "reg_ne_clean",
                     "imd_1_clean", "imd_2_clean", "imd_3_clean","imd_4_clean", "imd_5_clean", "imd_6_clean", 
                     "imd_7_clean", "imd_8_clean", "imd_9_clean", "imd_10_clean",
                     "vascular_disease_chads_clean", "stroke_chads_clean", "chf_chads_clean", "diabetes_chads_clean",
-                    "hypertension_chads_clean", "mean_chadsvasc", "chadsvasc_2_clean", "chadsvasc_3_clean", "chadsvasc_4_clean", 
-                    "chadsvasc_5_clean", "chadsvasc_6_clean", "chadsvasc_7_clean", "chadsvasc_8_clean", "chadsvasc_9_clean",
+                    "hypertension_chads_clean", "chadsvasc_clean", "chadsvasc_2_clean", "chadsvasc_3_clean", "chadsvasc_4_clean", 
+                    "chadsvasc_5_clean", "chadsvasc_6_clean", "chadsvasc_7_clean", "chadsvasc_8_clean", "chadsvasc_9_clean","chadsvasc_6_plus_clean",
                     "renal_disease_hasbled_clean", "liver_disease_hasbled_clean", "stroke_hasbled_clean", "bleeding_hasbled_clean", 
                     "alcohol_hasbled_clean", "bleeding_medications_hasbled_clean", "uncontrolled_hypertension_hasbled_clean",
-                    "mean_hasbled", "hasbled_score_0_clean", "hasbled_score_1_clean","hasbled_score_2_clean",
+                    "hasbled_clean", "hasbled_score_0_clean", "hasbled_score_1_clean","hasbled_score_2_clean",
                     "hasbled_score_3_clean","hasbled_score_4_clean","hasbled_score_5_clean","hasbled_score_6_clean",
-                    "hasbled_score_7_clean","hasbled_score_8_clean","hasbled_score_9_clean", "af_yrs_since_diagnosis_avg",
-                    "af_lt2yrs_clean", "af_2_to_5yrs_clean", "af_gte5yrs_clean", "fall_clean")
+                    "hasbled_score_7_clean","hasbled_score_8_clean","hasbled_score_9_clean", "hasbled_4_plus_clean","af_yrs_clean",
+                    "af_lt2yrs_clean", "af_2_to_5yrs_clean", "af_gte5yrs_clean", "fall_clean", 
+                    "covid_event_clean", "covid_hospitalisation_clean", "covid_hospitalisation_primary_dx_clean","covid_death_clean","covid_death_primary_dx_clean",
+                    "antihypertensives_clean", "lipid_regulating_drugs_clean", "insulin_clean", "sulphonylurea_clean",
+                    "metformin_clean", "other_diabetic_drugs_clean", "proton_pump_inhibitors_clean", "nsaids_clean", "corticosteroids_clean",
+                    "other_immunosuppressants_clean", "bmi_clean", "smoking_status_clean", "vaccine_status_clean")
     
     table1_clean = table1_summary_t[c(target_rows), ]
     
@@ -661,10 +846,26 @@ for (i in 1:length(categories)) {
   
   #setup table for chart
   table_for_chart = table1_all_time_indices %>% select(time_index, drug_category, individuals_pct, individuals_n) %>% filter( drug_category != "any_at") %>% filter ( drug_category != "total")
-  table_for_chart$individuals_pct = round(table_for_chart$individuals_pct, 4) * 100
+  table_for_chart$individuals_pct = round(table_for_chart$individuals_pct, 3) * 100
   
   #filter out categories with < 1 pct of total prescriptions 
   table_for_chart = table_for_chart %>% filter(individuals_pct > 1)
+  
+  #tidy drug category labels
+  table_for_chart = table_for_chart %>% mutate(drug_category = 
+                                                 case_when(drug_category == "ac_only" ~ "AC only",
+                                                           drug_category == "ap_only" ~ "AP only", 
+                                                           drug_category == "ac_and_ap" ~ "AC and AP",
+                                                           drug_category == "no_at" ~ "No AT",
+                                                           drug_category == "aspirin" ~ "Aspirin",
+                                                           drug_category == "apixaban" ~ "Apixaban",
+                                                           drug_category == "rivaroxaban" ~ "Rivaroxaban",
+                                                           drug_category == "edoxaban" ~ "Edoxaban",
+                                                           drug_category == "warfarin" ~ "Warfarin",
+                                                           drug_category == "clopidogrel" ~ "Clopidogrel",
+                                                           drug_category == "dabigatran" ~ "Dabigatran"
+                                                           
+                                                 ))
   
   #order by largest drug category first
   table_for_chart$drug_category <- reorder(table_for_chart$drug_category, table_for_chart$individuals_pct)
@@ -673,23 +874,21 @@ for (i in 1:length(categories)) {
   #treat output dates as factors so evenly spaced in chart
   table_for_chart$time_index = as.factor(table_for_chart$time_index)
   
-  #tidy drug category label
+  #tidy drug category title
   colnames(table_for_chart)[2] = "Drug category"
   
   #save table so chart can be replotted in R shiny app
   table_for_chart_filename = paste("output/table_for_all_time_indices_chart_",cat_flag,"_", today_date, ".csv", sep="")
   write.csv(table_for_chart, table_for_chart_filename, row.names=T, quote=F)
   
-  #plot and save figure
-  plot_filename = paste("output/prescribing_trends_", cat_flag,"_",today_date,".pdf", sep="")
-  fig1 = ggplot(table_for_chart, aes(y = individuals_n, x = time_index, fill = `Drug category`, label = paste(individuals_pct, "%", sep="")))+ geom_bar(stat="identity") + geom_text(size = 3, position = position_stack(vjust = 0.5)) + stat_summary(fun = sum, aes(label = ..y.., group = time_index, vjust = -.5), geom = "text") + scale_fill_brewer(palette="Blues") + labs(title=title_text,x ="Time index", y = "Individuals %") + theme_bw() + theme(axis.text.y=element_blank(), axis.ticks.y=element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"))
+  #plot and save figures
   
+  plot_filename = paste("output/prescribing_trends_", cat_flag,"_",today_date,".pdf", sep="")
+  fig1 = ggplot(table_for_chart, aes(y = individuals_pct, x = time_index, fill = `Drug category`, label = paste(individuals_pct, "%", sep=""))) + geom_bar(stat="identity") + geom_text(size = 3, position = position_stack(vjust = 0.5)) + scale_fill_brewer(palette="Blues") + labs(title=title_text,x ="Time index", y = "Individuals %") + theme_bw() + theme(axis.text.y=element_blank(), axis.ticks.y=element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"))
   ggsave(plot_filename, fig1, device = "pdf", width = 10, height = 8)
   
-  # pdf(file = plot_filename,width = 10,height = 8) 
-  # print(fig1)
-  # dev.off()
 }
+
 
 
 

@@ -1,15 +1,13 @@
-#add documentation
-
 build_forest_plot <- function(multivariable_res, exposure, outcome, analysis="factor", method = "basic", univariable = FALSE) {
   print(paste("Creating forest plot for ", exposure, " + " , outcome, " + ", method, sep=""))
     
   multivariable_res_plot = multivariable_res %>% mutate(
     var_group = case_when(
-    (var == "age_z") | (var == "bmi_z") | (var == "female") | (var == "smoking_status") | (substr(var, (nchar(var)-2),nchar(var)) == "yrs") ~ "dem*",
-    substr(var, 1,9) == "ethnicity" ~ "eth**",
-    substr(var, 1,6) == "region" ~ "reg****",
-    substr(var, 1,3) == "imd" ~ "imd***",
-    var == "fall" | (substr(var, (nchar(var)-4),nchar(var)) == "chads") | (substr(var, (nchar(var)-6),nchar(var)) == "hasbled") ~ "comorbidity",
+    (var == "age_z") | (var == "female") | (substr(var, (nchar(var)-2),nchar(var)) == "yrs") ~ "dem",
+    substr(var, 1,9) == "ethnicity" ~ "eth 1)",
+    substr(var, 1,6) == "region" ~ "reg 3)",
+    substr(var, 1,3) == "imd" ~ "imd 2)",
+    var == "fall" | (substr(var, (nchar(var)-4),nchar(var)) == "chads") | (substr(var, (nchar(var)-6),nchar(var)) == "hasbled") | (var == "bmi_z") | (var == "smoking_status") ~ "comorbidity",
     (var == "antihypertensives") | (var == "corticosteroids") | (var == exposure) | (var == "lipid_regulating_drugs") | (var == "nsaids") | (var == "other_immunosuppressants") | (var == "proton_pump_inhibitors") | (var == "vaccine_status") | (var == "prop_score_z") ~ "meds"
   ),
     clean_var = case_when(
@@ -31,6 +29,7 @@ build_forest_plot <- function(multivariable_res, exposure, outcome, analysis="fa
       var == "region_catEast Midlands" ~ "East Midlands",
       var == "region_catLondon" ~ "London",
       var == "region_catNorth East" ~ "North East",
+      var == "imd_decile_cat1" ~ "IMD dec 1",
       var == "imd_decile_cat2" ~ "IMD dec 2",
       var == "imd_decile_cat3" ~ "IMD dec 3",
       var == "imd_decile_cat4" ~ "IMD dec 4",
@@ -88,8 +87,12 @@ build_forest_plot <- function(multivariable_res, exposure, outcome, analysis="fa
     
     if ( (outcome == "covid_death") ){
       outcome_text = "COVID-19 death"
-    } else if ( (outcome == "covid_hospitalisation") ){
+    } else if (outcome == "covid_death_primary_dx") {
+      outcome_text = "COVID-19 death (primary diagnosis)"
+    }else if ( (outcome == "covid_hospitalisation") ){
       outcome_text = "COVID-19 hospitalisation"
+    } else if (outcome == "covid_hospitalisation_primary_dx") {
+      outcome_text = "COVID-19 hospitalisation (primary diagnosis)"
     } else {
       outcome_text = ""
     }
@@ -128,7 +131,7 @@ build_forest_plot <- function(multivariable_res, exposure, outcome, analysis="fa
     facet_grid(var_group~., scales= "free", space="free") +
     geom_hline(yintercept=1, lty=2) + 
     coord_flip() +  
-    xlab("Factor") + ylab(y_label) + labs(title = title_text, caption = "Reference categories , *<2 years since AF, **White ***IMD dec 1 ****South East") + theme_bw()
+    xlab("Factor") + ylab(y_label) + labs(title = title_text, caption = "Reference categories , 1) White 2) IMD decile 10 (least deprived) 3) South East") + theme_bw()
   
   return_objs = list(multivariable_res_plot, forest_plot)
   

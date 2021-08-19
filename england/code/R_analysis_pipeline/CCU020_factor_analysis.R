@@ -1,3 +1,4 @@
+#clear environment
 rm(list = ls())
 
 #Load packages
@@ -15,8 +16,8 @@ source("code/CCU020_fn_build_forest_plot.R", echo = TRUE)
 source("code/CCU020_fn_correlation_check.R", echo = TRUE)
 
 # setup time indices that require processing
-time_indices = c("2020_01_01", "2020_07_01", "2021_01_01", "2021_05_01")
-#time_indices = c("2020_01_01")
+#time_indices = c("2020_01_01", "2020_07_01", "2021_01_01", "2021_05_01")
+time_indices = c("2020_01_01")
 
 #set today's date for file versioning
 today_date = format(Sys.time(), "%d_%m_%Y")
@@ -25,21 +26,22 @@ today_date = format(Sys.time(), "%d_%m_%Y")
 for (index in time_indices){
   
   #load the saved data
-  #NOTE: have to load as rds to preserve levels in categorical factors
-  input_filename = paste("data/CCU020_base_cohort_", index, "_02_07_2021.rds", sep="")
+  input_filename = paste("data/CCU020_base_cohort_", index, "_16_08_2021.rds", sep="")
   data = readRDS(input_filename)
   
   
   #define target variables to include in the univariable regression
   target_variables = c("age_z", "female", "ethnicity_cat", "region_cat", "imd_decile_cat",
                        "congestive_heart_failure_chads", "hypertension_chads", "vascular_disease_chads", "diabetes_chads",
-                       "renal_disease_hasbled", "liver_disease_hasbled", "alcohol_hasbled", "stroke_hasbled", "bleeding_hasbled", "uncontrolled_hypertension_hasbled", "yrs_since_af_diagnosis_cat", "fall")
+                       "renal_disease_hasbled", "liver_disease_hasbled", "alcohol_hasbled", "stroke_hasbled", "bleeding_hasbled", "uncontrolled_hypertension_hasbled", "fall",
+                       "antihypertensives", "lipid_regulating_drugs", "proton_pump_inhibitors", "nsaids", "corticosteroids", "other_immunosuppressants", "bmi_z", "smoking_status")
   
   #for correlation test
   target_variables_numeric = c("age_z", "female", "eth_white", "eth_asian", "eth_black", "eth_mixed", "eth_other", "reg_se","reg_nw", "reg_ee", "reg_sw", "reg_yh", "reg_wm", "reg_em", "reg_ln", "reg_ne",
                                "imd_decile","congestive_heart_failure_chads", "hypertension_chads", "vascular_disease_chads", "diabetes_chads",
-                               "renal_disease_hasbled", "liver_disease_hasbled", "alcohol_hasbled","stroke_hasbled", "bleeding_hasbled", "uncontrolled_hypertension_hasbled", "af_lt2yrs", "af_2_to_5yrs", "af_gte5yrs", "fall")
-
+                               "renal_disease_hasbled", "liver_disease_hasbled", "alcohol_hasbled","stroke_hasbled", "bleeding_hasbled", "uncontrolled_hypertension_hasbled", "fall", 
+                               "antihypertensives", "lipid_regulating_drugs", "proton_pump_inhibitors", "nsaids", "corticosteroids", "other_immunosuppressants", "bmi_z", "smoking_status")
+  
   
   #run correlation test
   
@@ -131,13 +133,11 @@ for (index in time_indices){
     multivariable_forest_plot_filename = paste("output/factor_multivariable_forest_plot_", outcome, "_", index, "_", today_date, ".png", sep="")
     ggsave(multivariable_forest_plot_filename, multivariable_forest_plot_graphic, device = "png", width = 7, height = 8)
     
-    #missing svg lite package
-    # multivariable_forest_plot_filename = paste("output/factor_multivariable_forest_plot_", outcome, "_", index, "_", today_date, ".svg", sep="")
-    # ggsave(multivariable_forest_plot_filename, multivariable_forest_plot_graphic, device = "svg", width = 7, height = 8)
-    
   }
   
 }
+
+
 
 
 

@@ -23,8 +23,7 @@ today_date = format(Sys.time(), "%d_%m_%Y")
 
 #conduct data processing for each time index and save data object
 for (index in time_indices){
-  
-  query = paste('SELECT * FROM dars_nic_391419_j3w9t_collab.ccu020_20210701_', index, '_study_population_cov', sep="")
+  query = paste('SELECT * FROM dars_nic_391419_j3w9t_collab.ccu020_20210816_', index, '_study_population_cov_testcodelist', sep="")
   
   # load data
   data = dbGetQuery(con,query)
@@ -132,7 +131,7 @@ for (index in time_indices){
   data$region_cat = factor(data$region_name, levels = c("South East", "North West", "East of England", "South West", "Yorkshire and The Humber", "West Midlands", "East Midlands", "London", "North East"))
   
   #imd decile categories
-  data$imd_decile_cat = factor(data$imd_decile)
+  data$imd_decile_cat = factor(data$imd_decile, levels=c("10", "9", "8", "7", "6", "5", "4", "3", "2", "1"))
   
   #PROCESS AF VARIABLES--------------------
   
@@ -216,6 +215,15 @@ for (index in time_indices){
   #smoking status - replace na's with 0 
   data = data %>% mutate_at(c("smoking_status"), ~replace(., is.na(.), 0))
   
+  #PROCESSS COVID-19 VARIABLES --------------------
+  
+  print("Add vaccine status")
+  data = data %>% mutate(vaccine_status = if_else ( ( !is.na(covid_infection_date) & !is.na(covid_first_vaccine_date) & (covid_first_vaccine_date < covid_infection_date) ), 1, 0))
+  
+  #replace all n/a's with 0 in covid outcome columns
+  covid_outcome_columns = c("covid_infection", "covid_death", "covid_hospitalisation", "covid_death_primary_dx", "covid_hospitalisation_primary_dx")
+  data = data %>% mutate_at(covid_outcome_columns, ~replace(., is.na(.), 0))
+  
   #APPLY CHADSVASC INCLUSION CRITERIA --------------------
   
   #remove individuals with chadsvasc <2
@@ -244,8 +252,8 @@ for (index in time_indices){
       print(cut_off_date)
       #remove individuals without a positive covid diagnosis
       print(paste("Confirm individuals in data with chadsvasc >= 2 pre covid filter: ", nrow(data_chadsgte2)))
-      print(paste("Remove (n) individuals without covid: ", nrow(filter(data_chadsgte2, is.na(covid_infection)))))
-      data_cov = data_chadsgte2 %>% filter(!is.na(covid_infection)) 
+      print(paste("Remove (n) individuals without covid: ", nrow(filter(data_chadsgte2, is.na(covid_infection_date)))))
+      data_cov = data_chadsgte2 %>% filter(!is.na(covid_infection_date)) 
       print(paste("Individuals (n) with chadsvasc >= 2 and covid: ", nrow(data_cov)))
       
       #PROCESS COVID OUTCOME VARIABLES --------------------
@@ -259,45 +267,33 @@ for (index in time_indices){
       
       print(paste("Confirm individuals with covid post cohort end date filter (covid infection date): ", nrow(data_cov)))
       
+      print("Check for individuals with a recorded hospitalisation but no corresponding hospitalisation date")
+      cov_hosp = data_cov %>% filter(covid_hospitalisation == 1)
+      print(paste("Individuals (n) with recorded hospitalisation but no corresponding hospitalisation date", nrow(cov_hosp %>% filter(is.na(covid_hospitalisation_date)))))
+      
+      
+      
       #calculate follow-up time
       data_cov = data_cov %>% mutate(fu_date_death = if_else (covid_death == 1, date_of_death, cohort_end_date), 
-                                     fu_date_hosp = if_else (covid_hospitalisation == 1, covid_hospitalisation_date, cohort_end_date)
+                                     fu_date_death_primary_dx = if_else (covid_death_primary_dx == 1, date_of_death, cohort_end_date),
+                                     fu_date_hosp = if_else (covid_hospitalisation == 1, covid_hospitalisation_date, cohort_end_date),
+                                     fu_date_hosp_primary_dx = if_else (covid_hospitalisation_primary_dx == 1, covid_hospitalisation_date, cohort_end_date)
       )
       
+      #replace fu_date_hosp with cohort end date (censored) for 1 individual with a recorded hospitalisation but no corresponding hospitalisation date
+      data_cov = data_cov %>% mutate(fu_date_hosp = if_else (is.na(fu_date_hosp), cohort_end_date, fu_date_hosp)) 
+      
       data_cov$fu_time_death <- as.numeric(data_cov$fu_date_death - data_cov$covid_infection_date, units = "days")
+      data_cov$fu_date_death_primary_dx <- as.numeric(data_cov$fu_date_death_primary_dx - data_cov$covid_infection_date, units = "days")
       data_cov$fu_time_hosp <- as.numeric(data_cov$fu_date_hosp - data_cov$covid_infection_date, units = "days")
+      data_cov$fu_date_hosp_primary_dx <- as.numeric(data_cov$fu_date_hosp_primary_dx - data_cov$covid_infection_date, units = "days")
       
       #check for any remaining data on covid outcomes which is after cohort end date and remove if required
-      print(paste("Confirm individuals with covid pre cohort end date filter (covid hospitalisation and covid death): ", nrow(data_cov)))
+      print(paste("Confirm individuals with covid pre cohort end date and n/a date filter (covid hospitalisation and covid death): ", nrow(data_cov)))
       
       data_cov = data_cov %>% filter(fu_date_death <= cohort_end_date) %>% filter(fu_date_hosp <= cohort_end_date)
       
-      print(paste("Confirm individuals with covid post cohort end date filter (covid hospitalisation and covid death): ", nrow(data_cov)))
-      
-      #add vaccine status
-      
-      print("Add vaccine status")
-      #extract YYYYMMDD (first 8 characters), format for as.Date and convert
-      #no longer required due to pre-processing in Databricks
-      # clean_dates = function(row){
-      #   
-      #   if (!is.na(row)){
-      #     #print(row)
-      #     date = as.character(paste(substr(row, 1, 4), "-", substr(row, 5, 6), "-", substr(row, 7, 8), sep=""))
-      #     date_clean = format(as.Date(date,origin="1970-01-01"))
-      #     #print(date_clean)
-      #     return(date_clean)
-      #   } else {
-      #     #print(row)
-      #     return(NA)
-      #   }
-      #   
-      # }
-      # 
-      # data_cov$covid_first_vaccine_date_clean = mapply(clean_dates, data_cov$covid_first_vaccine_date)
-      
-      #set vaccine status to 1 if vaccine before covid infection
-      data_cov = data_cov %>% mutate(vaccine_status = if_else ( ( (covid_first_vaccine_date < covid_infection_date) & !is.na(covid_first_vaccine_date) ), 1, 0))
+      print(paste("Confirm individuals with covid post cohort end date and n/a date filter (covid hospitalisation and covid death): ", nrow(data_cov)))
       
       print(paste("Confirm number of individuals in covid data after all transformations", nrow(data_cov)))
       
@@ -310,6 +306,7 @@ for (index in time_indices){
     print(paste("No covid cohort created for: ", index))
   }
 }
+
 
 
 

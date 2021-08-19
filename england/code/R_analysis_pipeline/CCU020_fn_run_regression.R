@@ -1,5 +1,3 @@
-#add documentation
-
 run_regression <- function(exposure, outcome, target_variables, data, method = "basic") {
   print(paste("Running regression for ", exposure, " + " , outcome, " + ", method, sep=""))
   
@@ -18,8 +16,12 @@ run_regression <- function(exposure, outcome, target_variables, data, method = "
     
     if (outcome == "covid_death"){
       formula = as.formula(paste("Surv(fu_time_death,", outcome, ") ~ ",covariates, " + prop_score_z", sep="")) 
-    } else {
+    } else if (outcome == "covid_hospitalisation"){
       formula = as.formula(paste("Surv(fu_time_hosp,", outcome, ") ~ ",covariates, " + prop_score_z", sep="")) 
+    } else if (outcome == "covid_death_primary_dx") {
+      formula = as.formula(paste("Surv(fu_date_death_primary_dx,", outcome, ") ~ ",covariates, " + prop_score_z", sep=""))
+    } else {
+      formula = as.formula(paste("Surv(fu_date_hosp_primary_dx,", outcome, ") ~ ",covariates, " + prop_score_z", sep=""))
     }
     
   }
@@ -46,10 +48,6 @@ run_regression <- function(exposure, outcome, target_variables, data, method = "
     p_val = unname(coef(summary(multi_md))[,5][1:length(multi_md$coefficients)])
     multivariate_res = data.frame(var=var_names, or=or, ci_or_lower=ci_or_lower, ci_or_upper=ci_or_upper, p=p_val)
     
-    #TO-DO: confirm interpretation of this, appears to suggest the model doesn't meet the criteria of proportional hazards
-    # cox_ph_test = cox.zph(multi_md)
-    # print(paste("Check p-values of cox ph test for ", exposure, "-", outcome))
-    # print(cox_ph_test)
     
   } else {
     

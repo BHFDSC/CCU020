@@ -1,3 +1,4 @@
+#clear environment
 rm(list = ls())
 
 #Load packages
@@ -34,7 +35,7 @@ for (cut_off in cohort_end_dates){
     print(paste("Starting analysis for cohort starting:", index, "and finishing: ", cut_off))
     
     #load data
-    input_filename = paste("data/CCU020_cov_cohort_", index, "_", cut_off, "_02_07_2021.rds", sep="")
+    input_filename = paste("data/CCU020_cov_cohort_", index, "_", cut_off, "_16_08_2021.rds", sep="")
     data = readRDS(input_filename)
     
     print(paste("Individuals for covid analysis: ", nrow(data)))
@@ -85,6 +86,12 @@ for (cut_off in cohort_end_dates){
         return(clean_var)
       }
       
+      #create function to generate clean labels for mean and sd columns
+      clean_cont_text = function(col_mean, col_sd) {
+        clean_var = paste(round(col_mean, 1), " (+/- ", round(col_sd,1), ")", sep="")
+        return(clean_var)
+      }
+      
       #individuals 
       n_split =  nrow(split_df)
       n_split_pct = nrow(split_df) / denominator
@@ -92,6 +99,17 @@ for (cut_off in cohort_end_dates){
       
       #age
       split_mean_age = mean(split_df$age_at_cohort_start)
+      age_sd = sd(split_df$age_at_cohort_start)
+      age_clean = clean_cont_text(split_mean_age, age_sd)
+      
+      #age categories
+      age65_74_n = sum(split_df$age65_74) 
+      age65_74_pct = age65_74_n / nrow(split_df)
+      age65_74_clean = clean_table_text(age65_74_n, age65_74_pct)
+      
+      agegte75_n = sum(split_df$agegte75) 
+      agegte75_pct = agegte75_n / nrow(split_df)
+      agegte75_clean = clean_table_text(agegte75_n, agegte75_pct)
       
       #sex
       female_n = sum(split_df$female)
@@ -222,6 +240,45 @@ for (cut_off in cohort_end_dates){
       
       #chadsvasc score
       chadsvasc_avg = mean(split_df$chadsvasc_score)
+      chadsvasc_sd = sd(split_df$chadsvasc_score)
+      chadsvasc_clean = clean_cont_text(chadsvasc_avg, chadsvasc_sd)
+      
+      split_chadsvasc_scores = split_df %>% group_by(chadsvasc_score) %>% summarise(n = n())
+      chadsvasc_2_n = as.numeric(split_chadsvasc_scores[1,2])
+      chadsvasc_2_pct = as.numeric(chadsvasc_2_n / nrow(split_df))
+      chadsvasc_2_clean = clean_table_text(chadsvasc_2_n, chadsvasc_2_pct)
+      
+      chadsvasc_3_n = as.numeric(split_chadsvasc_scores[2,2])
+      chadsvasc_3_pct = as.numeric(chadsvasc_3_n / nrow(split_df))
+      chadsvasc_3_clean = clean_table_text(chadsvasc_3_n, chadsvasc_3_pct)
+      
+      chadsvasc_4_n = as.numeric(split_chadsvasc_scores[3,2])
+      chadsvasc_4_pct = as.numeric(chadsvasc_4_n / nrow(split_df))
+      chadsvasc_4_clean = clean_table_text(chadsvasc_4_n, chadsvasc_4_pct)
+      
+      chadsvasc_5_n = as.numeric(split_chadsvasc_scores[4,2])
+      chadsvasc_5_pct = as.numeric(chadsvasc_5_n / nrow(split_df))
+      chadsvasc_5_clean = clean_table_text(chadsvasc_5_n, chadsvasc_5_pct)
+      
+      chadsvasc_6_n = as.numeric(split_chadsvasc_scores[5,2])
+      chadsvasc_6_pct = as.numeric(chadsvasc_6_n / nrow(split_df))
+      chadsvasc_6_clean = clean_table_text(chadsvasc_6_n, chadsvasc_6_pct)
+      
+      chadsvasc_7_n = as.numeric(split_chadsvasc_scores[6,2])
+      chadsvasc_7_pct = as.numeric(chadsvasc_7_n / nrow(split_df))
+      chadsvasc_7_clean = clean_table_text(chadsvasc_7_n, chadsvasc_7_pct)
+      
+      chadsvasc_8_n = as.numeric(split_chadsvasc_scores[7,2])
+      chadsvasc_8_pct = as.numeric(chadsvasc_8_n / nrow(split_df))
+      chadsvasc_8_clean = clean_table_text(chadsvasc_8_n, chadsvasc_8_pct)
+      
+      chadsvasc_9_n = as.numeric(split_chadsvasc_scores[8,2])
+      chadsvasc_9_pct = as.numeric(chadsvasc_9_n / nrow(split_df))
+      chadsvasc_9_clean = clean_table_text(chadsvasc_9_n, chadsvasc_9_pct)
+      
+      chadsvasc_6_plus_n = nrow(split_df) - (chadsvasc_2_n + chadsvasc_3_n + chadsvasc_4_n + chadsvasc_5_n)
+      chadsvasc_6_plus_pct = 1 - (chadsvasc_2_pct + chadsvasc_3_pct + chadsvasc_4_pct + chadsvasc_5_pct)
+      chadsvasc_6_plus_clean = clean_table_text(chadsvasc_6_plus_n, chadsvasc_6_plus_pct)
       
       #hasbled disease components
       renal_disease_hasbled_n = sum(split_df$renal_disease_hasbled)
@@ -258,16 +315,101 @@ for (cut_off in cohort_end_dates){
       
       #hasbled score
       hasbled_avg = mean(split_df$hasbled_score)
+      hasbled_sd = sd(split_df$hasbled_score)
+      hasbled_clean = clean_cont_text(hasbled_avg, hasbled_sd)
+      
+      split_hasbled_scores = split_df %>% group_by(hasbled_score) %>% summarise(n = n())
+      
+      hasbled_score_0_n = as.numeric(split_hasbled_scores[1,2])
+      hasbled_score_0_pct = as.numeric(hasbled_score_0_n / nrow(split_df))
+      hasbled_score_0_clean = clean_table_text(hasbled_score_0_n, hasbled_score_0_pct)
+      
+      hasbled_score_1_n = as.numeric(split_hasbled_scores[2,2])
+      hasbled_score_1_pct = as.numeric(hasbled_score_1_n / nrow(split_df))
+      hasbled_score_1_clean = clean_table_text(hasbled_score_1_n, hasbled_score_1_pct)
+      
+      hasbled_score_2_n = as.numeric(split_hasbled_scores[3,2])
+      hasbled_score_2_pct = as.numeric(hasbled_score_2_n / nrow(split_df))
+      hasbled_score_2_clean = clean_table_text(hasbled_score_2_n, hasbled_score_2_pct)
+      
+      hasbled_score_3_n = as.numeric(split_hasbled_scores[4,2])
+      hasbled_score_3_pct = as.numeric(hasbled_score_3_n / nrow(split_df))
+      hasbled_score_3_clean = clean_table_text(hasbled_score_3_n, hasbled_score_3_pct)
+      
+      hasbled_score_4_n = as.numeric(split_hasbled_scores[5,2])
+      hasbled_score_4_pct = as.numeric(hasbled_score_4_n / nrow(split_df))
+      hasbled_score_4_clean = clean_table_text(hasbled_score_4_n, hasbled_score_4_pct)
+      
+      hasbled_score_5_n = as.numeric(split_hasbled_scores[6,2])
+      hasbled_score_5_pct = as.numeric(hasbled_score_5_n / nrow(split_df))
+      hasbled_score_5_clean = clean_table_text(hasbled_score_5_n, hasbled_score_5_pct)
+      
+      hasbled_score_6_n = as.numeric(split_hasbled_scores[7,2])
+      hasbled_score_6_pct = as.numeric(hasbled_score_6_n / nrow(split_df))
+      hasbled_score_6_clean = clean_table_text(hasbled_score_6_n, hasbled_score_6_pct)
+      
+      hasbled_score_7_n = as.numeric(split_hasbled_scores[8,2])
+      hasbled_score_7_pct = as.numeric(hasbled_score_7_n / nrow(split_df))
+      hasbled_score_7_clean = clean_table_text(hasbled_score_7_n, hasbled_score_7_pct)
+      
+      hasbled_score_8_n = as.numeric(split_hasbled_scores[9,2])
+      hasbled_score_8_pct = as.numeric(hasbled_score_8_n / nrow(split_df))
+      hasbled_score_8_clean = clean_table_text(hasbled_score_8_n, hasbled_score_8_pct)
+      
+      hasbled_score_9_n = as.numeric(split_hasbled_scores[10,2])
+      hasbled_score_9_pct = as.numeric(hasbled_score_9_n / nrow(split_df))
+      hasbled_score_9_clean = clean_table_text(hasbled_score_9_n, hasbled_score_9_pct)
+      
+      hasbled_4_plus_n = nrow(split_df) - (hasbled_score_0_n + hasbled_score_1_n + hasbled_score_2_n + hasbled_score_3_n)
+      hasbled_4_plus_pct = 1 - (hasbled_score_0_pct + hasbled_score_1_pct + hasbled_score_2_pct + hasbled_score_3_pct)
+      hasbled_4_plus_clean = clean_table_text(hasbled_4_plus_n, hasbled_4_plus_pct)
+      
+      #yrs since af diagnosis
+      af_yrs_avg = mean(split_df$yrs_since_af_diagnosis)
+      af_yrs_sd = sd(split_df$yrs_since_af_diagnosis)
+      af_yrs_clean = clean_cont_text(af_yrs_avg, af_yrs_sd)
+      
+      af_lt2yrs_n = sum(split_df$af_lt2yrs)
+      af_lt2yrs_pct = af_lt2yrs_n / nrow(split_df)
+      af_lt2yrs_clean = clean_table_text(af_lt2yrs_n, af_lt2yrs_pct)
+      
+      af_2_to_5yrs_n = sum(split_df$af_2_to_5yrs)
+      af_2_to_5yrs_pct = af_2_to_5yrs_n / nrow(split_df)
+      af_2_to_5yrs_clean = clean_table_text(af_2_to_5yrs_n, af_2_to_5yrs_pct)
+      
+      af_gte5yrs_n = sum(split_df$af_gte5yrs)
+      af_gte5yrs_pct = af_gte5yrs_n / nrow(split_df)
+      af_gte5yrs_clean = clean_table_text(af_gte5yrs_n, af_gte5yrs_pct)
+      
+      #fall
+      fall_n = sum(split_df$fall)
+      fall_pct = fall_n / nrow(split_df)
+      fall_clean = clean_table_text(fall_n, fall_pct)
+      
+      #covid event
+      covid_event_n = sum(split_df$covid_infection)
+      covid_event_pct = covid_event_n / nrow(split_df)
+      covid_event_clean = clean_table_text(covid_event_n, covid_event_pct)
       
       #covid hospitalisation
       covid_hospitalisation_n = sum(split_df$covid_hospitalisation)
       covid_hospitalisation_pct = covid_hospitalisation_n / nrow(split_df)
       covid_hospitalisation_clean = clean_table_text(covid_hospitalisation_n, covid_hospitalisation_pct)
       
+      #covid hospitalisation primary dx
+      covid_hospitalisation_primary_dx_n = sum(split_df$covid_hospitalisation_primary_dx)
+      covid_hospitalisation_primary_dx_pct = covid_hospitalisation_primary_dx_n / nrow(split_df)
+      covid_hospitalisation_primary_dx_clean = clean_table_text(covid_hospitalisation_primary_dx_n, covid_hospitalisation_primary_dx_pct)
+      
       #covid death
       covid_death_n = sum(split_df$covid_death)
       covid_death_pct = covid_death_n / nrow(split_df)
       covid_death_clean = clean_table_text(covid_death_n, covid_death_pct)
+      
+      #covid death primary dx
+      covid_death_primary_dx_n = sum(split_df$covid_death_primary_dx)
+      covid_death_primary_dx_pct = covid_death_primary_dx_n / nrow(split_df)
+      covid_death_primary_dx_clean = clean_table_text(covid_death_primary_dx_n, covid_death_primary_dx_pct)
       
       #antihypertensives
       antihypertensives_n = sum(split_df$antihypertensives)
@@ -283,17 +425,17 @@ for (cut_off in cohort_end_dates){
       insulin_n = sum(split_df$insulin)
       insulin_pct = insulin_n / nrow(split_df)
       insulin_clean = clean_table_text(insulin_n, insulin_pct)
-
+      
       #sulphonylurea
       sulphonylurea_n = sum(split_df$sulphonylurea)
       sulphonylurea_pct = sulphonylurea_n / nrow(split_df)
       sulphonylurea_clean = clean_table_text(sulphonylurea_n, sulphonylurea_pct)
-
+      
       #metformin
       metformin_n = sum(split_df$metformin)
       metformin_pct = metformin_n / nrow(split_df)
       metformin_clean = clean_table_text(metformin_n, metformin_pct)
-
+      
       #other_diabetic_drugs
       other_diabetic_drugs_n = sum(split_df$other_diabetic_drugs)
       other_diabetic_drugs_pct = other_diabetic_drugs_n / nrow(split_df)
@@ -321,6 +463,8 @@ for (cut_off in cohort_end_dates){
       
       #bmi
       split_mean_bmi = mean(split_df$bmi_impute)
+      bmi_sd = sd(split_df$bmi_impute)
+      bmi_clean = clean_cont_text(split_mean_bmi, bmi_sd)
       
       #smoking status
       smoking_status_n = sum(split_df$smoking_status)
@@ -332,16 +476,23 @@ for (cut_off in cohort_end_dates){
       vaccine_status_pct = vaccine_status_n / nrow(split_df)
       vaccine_status_clean = clean_table_text(vaccine_status_n, vaccine_status_pct)
       
-      new_entry = data.frame(cohort_start_date = cohort_start_date, 
-                             cohort_end_date = cohort_end_date,
+      new_entry = data.frame(time_index = cohort_start_date, 
                              drug_category = split, 
                              individuals_n = n_split, 
                              individuals_pct = n_split_pct, 
                              individuals_clean = n_split_clean,
                              mean_age = split_mean_age,
+                             age_sd = age_sd,
+                             age_clean = age_clean,
+                             age65_74_n = age65_74_n,
+                             age65_74_pct = age65_74_pct, 
+                             age65_74_clean = age65_74_clean,
+                             agegte75_n = agegte75_n, 
+                             agegte75_pct = agegte75_pct,
+                             agegte75_clean = agegte75_clean,
                              female_n = female_n,
                              female_pct = female_pct,
-                             female_clean = female_clean,
+                             female_clean = female_clean, 
                              eth_white_n = eth_white_n,
                              eth_white_pct = eth_white_pct,
                              eth_white_clean = eth_white_clean,
@@ -430,6 +581,35 @@ for (cut_off in cohort_end_dates){
                              hypertension_chads_pct = hypertension_chads_pct,
                              hypertension_chads_clean = hypertension_chads_clean,
                              mean_chadsvasc = chadsvasc_avg,
+                             chadsvasc_sd = chadsvasc_sd, 
+                             chadsvasc_clean = chadsvasc_clean,
+                             chadsvasc2 = chadsvasc_2_n,
+                             chadsvasc2pct = chadsvasc_2_pct, 
+                             chadsvasc_2_clean  = chadsvasc_2_clean,
+                             chadsvasc3n = chadsvasc_3_n,
+                             chadsvasc3pct = chadsvasc_3_pct,
+                             chadsvasc_3_clean = chadsvasc_3_clean,
+                             chadsvasc4n = chadsvasc_4_n,
+                             chadsvasc4pct = chadsvasc_4_pct,
+                             chadsvasc_4_clean = chadsvasc_4_clean,
+                             chadsvasc5n = chadsvasc_5_n,
+                             chadsvasc5pct = chadsvasc_5_pct,
+                             chadsvasc_5_clean = chadsvasc_5_clean,
+                             chadsvasc6n = chadsvasc_6_n,
+                             chadsvasc6pct = chadsvasc_6_pct,
+                             chadsvasc_6_clean = chadsvasc_6_clean,
+                             chadsvasc7n = chadsvasc_7_n, 
+                             chadsvasc7pct = chadsvasc_7_pct,
+                             chadsvasc_7_clean = chadsvasc_7_clean,
+                             chadsvasc8n = chadsvasc_8_n,
+                             chadsvasc8pct = chadsvasc_8_pct,
+                             chadsvasc_8_clean = chadsvasc_8_clean,
+                             chadsvasc9n = chadsvasc_9_n,
+                             chadsvasc9pct = chadsvasc_9_pct,
+                             chadsvasc_9_clean = chadsvasc_9_clean,
+                             chadsvasc_6_plus_n = chadsvasc_6_plus_n, 
+                             chadsvasc_6_plus_pct = chadsvasc_6_plus_pct, 
+                             chadsvasc_6_plus_clean = chadsvasc_6_plus_clean,
                              renal_disease_hasbled_n = renal_disease_hasbled_n, 
                              renal_disease_hasbled_pct = renal_disease_hasbled_pct,
                              renal_disease_hasbled_clean = renal_disease_hasbled_clean,
@@ -452,12 +632,71 @@ for (cut_off in cohort_end_dates){
                              uncontrolled_hypertension_hasbled_pct = uncontrolled_hypertension_hasbled_pct,
                              uncontrolled_hypertension_hasbled_clean = uncontrolled_hypertension_hasbled_clean,
                              mean_hasbled = hasbled_avg,
+                             hasbled_sd = hasbled_sd, 
+                             hasbled_clean = hasbled_clean,
+                             hasbled_score_0_n = hasbled_score_0_n,
+                             hasbled_score_0_pct = hasbled_score_0_pct, 
+                             hasbled_score_0_clean = hasbled_score_0_clean,
+                             hasbled_score_1_n = hasbled_score_1_n,
+                             hasbled_score_1_pct = hasbled_score_1_pct, 
+                             hasbled_score_1_clean = hasbled_score_1_clean,
+                             hasbled_score_2_n = hasbled_score_2_n,
+                             hasbled_score_2_pct = hasbled_score_2_pct,
+                             hasbled_score_2_clean = hasbled_score_2_clean,
+                             hasbled_score_3_n = hasbled_score_3_n,
+                             hasbled_score_3_pct = hasbled_score_3_pct,
+                             hasbled_score_3_clean = hasbled_score_3_clean,
+                             hasbled_score_4_n = hasbled_score_4_n, 
+                             hasbled_score_4_pct = hasbled_score_4_pct,
+                             hasbled_score_4_clean = hasbled_score_4_clean,
+                             hasbled_score_5_n = hasbled_score_5_n, 
+                             hasbled_score_5_pct = hasbled_score_5_pct,
+                             hasbled_score_5_clean = hasbled_score_5_clean,
+                             hasbled_score_6_n = hasbled_score_6_n,
+                             hasbled_score_6_pct = hasbled_score_6_pct,
+                             hasbled_score_6_clean = hasbled_score_6_clean,
+                             hasbled_score_7_n = hasbled_score_7_n,
+                             hasbled_score_7_pct = hasbled_score_7_pct,
+                             hasbled_score_7_clean = hasbled_score_7_clean,
+                             hasbled_score_8_n = hasbled_score_8_n,
+                             hasbled_score_8_pct = hasbled_score_8_pct,
+                             hasbled_score_8_clean = hasbled_score_8_clean,
+                             hasbled_score_9_n = hasbled_score_9_n,
+                             hasbled_score_9_pct = hasbled_score_9_pct,
+                             hasbled_score_9_clean = hasbled_score_9_clean,
+                             hasbled_4_plus_n = hasbled_4_plus_n,
+                             hasbled_4_plus_pct = hasbled_4_plus_pct,
+                             hasbled_4_plus_clean = hasbled_4_plus_clean,
+                             af_yrs_since_diagnosis_avg = af_yrs_avg, 
+                             af_yrs_sd = af_yrs_sd, 
+                             af_yrs_clean = af_yrs_clean,
+                             af_lt2yrs_n = af_lt2yrs_n, 
+                             af_lt2yrs_pct = af_lt2yrs_pct, 
+                             af_lt2yrs_clean = af_lt2yrs_clean,
+                             af_2_to_5yrs_n = af_2_to_5yrs_n, 
+                             af_2_to_5yrs_pct = af_2_to_5yrs_pct,
+                             af_2_to_5yrs_clean = af_2_to_5yrs_clean,
+                             af_gte5yrs_n = af_gte5yrs_n, 
+                             af_gte5yrs_pct = af_gte5yrs_pct,
+                             af_gte5yrs_clean = af_gte5yrs_clean,
+                             fall_n = fall_n,
+                             fall_pct = fall_pct,
+                             fall_clean = fall_clean,
+                             covid_event_n = covid_event_n, 
+                             covid_event_pct = covid_event_pct,
+                             covid_event_clean = covid_event_clean,
                              covid_hospitalisation_n = covid_hospitalisation_n, 
                              covid_hospitalisation_pct = covid_hospitalisation_pct,
                              covid_hospitalisation_clean = covid_hospitalisation_clean,
+                             covid_hospitalisation_primary_dx_n = covid_hospitalisation_primary_dx_n, 
+                             covid_hospitalisation_primary_dx_pct = covid_hospitalisation_primary_dx_pct,
+                             covid_hospitalisation_primary_dx_clean = covid_hospitalisation_primary_dx_clean,
                              covid_death_n = covid_death_n, 
                              covid_death_pct = covid_death_pct,
                              covid_death_clean = covid_death_clean,
+                             covid_death_primary_dx_n = covid_death_primary_dx_n, 
+                             covid_death_primary_dx_pct = covid_death_primary_dx_pct,
+                             covid_death_primary_dx_clean = covid_death_primary_dx_clean,
                              antihypertensives_n = antihypertensives_n, 
                              antihypertensives_pct = antihypertensives_pct,
                              antihypertensives_clean = antihypertensives_clean,
@@ -489,13 +728,15 @@ for (cut_off in cohort_end_dates){
                              other_immunosuppressants_pct = other_immunosuppressants_pct, 
                              other_immunosuppressants_clean = other_immunosuppressants_clean,
                              mean_bmi = split_mean_bmi,
+                             bmi_sd = bmi_sd, 
+                             bmi_clean = bmi_clean,
                              smoking_status_n = smoking_status_n,
                              smoking_status_pct = smoking_status_pct,
                              smoking_status_clean = smoking_status_clean,
                              vaccine_status_n = vaccine_status_n, 
                              vaccine_status_pct = vaccine_status_pct,
-                             vaccine_status_clean
-                             )
+                             vaccine_status_clean = vaccine_status_clean
+      )
       
       table2_summary = rbind(table2_summary, new_entry)
     }
@@ -506,19 +747,27 @@ for (cut_off in cohort_end_dates){
     write.csv(table2_summary, table2_index_filename, row.names=F, quote=F)
     
     #export polished summary table for manuscript
-    table2_summary_t = setNames(data.frame(t(table2_summary[,-3])), table2_summary[,3])
+    table2_summary_t = setNames(data.frame(t(table2_summary[,-2])), table2_summary[,2])
     
-    target_rows = c("individuals_clean", "mean_age", "female_clean", "eth_white_clean", "eth_asian_clean", "eth_black_clean",
+    target_rows = c("individuals_clean", "age_clean", "age65_74_clean", "agegte75_clean",
+                    "female_clean", "eth_white_clean", "eth_asian_clean", "eth_black_clean",
                     "eth_mixed_clean", "eth_other_clean", "reg_se_clean", "reg_nw_clean", "reg_ee_clean",
                     "reg_sw_clean", "reg_yh_clean", "reg_wm_clean", "reg_em_clean", "reg_ln_clean", "reg_ne_clean",
                     "imd_1_clean", "imd_2_clean", "imd_3_clean","imd_4_clean", "imd_5_clean", "imd_6_clean", 
-                    "imd_7_clean", "imd_8_clean", "imd_9_clean", "imd_10_clean","vascular_disease_chads_clean", "stroke_chads_clean", "chf_chads_clean", "diabetes_chads_clean",
-                    "hypertension_chads_clean", "mean_chadsvasc", "renal_disease_hasbled_clean", "liver_disease_hasbled_clean", "stroke_hasbled_clean", "bleeding_hasbled_clean", 
+                    "imd_7_clean", "imd_8_clean", "imd_9_clean", "imd_10_clean",
+                    "vascular_disease_chads_clean", "stroke_chads_clean", "chf_chads_clean", "diabetes_chads_clean",
+                    "hypertension_chads_clean", "chadsvasc_clean", "chadsvasc_2_clean", "chadsvasc_3_clean", "chadsvasc_4_clean", 
+                    "chadsvasc_5_clean", "chadsvasc_6_clean", "chadsvasc_7_clean", "chadsvasc_8_clean", "chadsvasc_9_clean","chadsvasc_6_plus_clean",
+                    "renal_disease_hasbled_clean", "liver_disease_hasbled_clean", "stroke_hasbled_clean", "bleeding_hasbled_clean", 
                     "alcohol_hasbled_clean", "bleeding_medications_hasbled_clean", "uncontrolled_hypertension_hasbled_clean",
-                    "mean_hasbled","covid_hospitalisation_clean", "covid_death_clean",
+                    "hasbled_clean", "hasbled_score_0_clean", "hasbled_score_1_clean","hasbled_score_2_clean",
+                    "hasbled_score_3_clean","hasbled_score_4_clean","hasbled_score_5_clean","hasbled_score_6_clean",
+                    "hasbled_score_7_clean","hasbled_score_8_clean","hasbled_score_9_clean", "hasbled_4_plus_clean","af_yrs_clean",
+                    "af_lt2yrs_clean", "af_2_to_5yrs_clean", "af_gte5yrs_clean", "fall_clean", 
+                    "covid_event_clean", "covid_hospitalisation_clean", "covid_hospitalisation_primary_dx_clean","covid_death_clean","covid_death_primary_dx_clean",
                     "antihypertensives_clean", "lipid_regulating_drugs_clean", "insulin_clean", "sulphonylurea_clean",
                     "metformin_clean", "other_diabetic_drugs_clean", "proton_pump_inhibitors_clean", "nsaids_clean", "corticosteroids_clean",
-                    "other_immunosuppressants_clean", "mean_bmi", "smoking_status_clean", "vaccine_status_clean")
+                    "other_immunosuppressants_clean", "bmi_clean", "smoking_status_clean", "vaccine_status_clean")
     
     table2_clean = table2_summary_t[c(target_rows), ]
     
@@ -530,7 +779,10 @@ for (cut_off in cohort_end_dates){
     
     #NOTE: logic relies on this order due to data subsetting logic below 
     exposures = c("any_at", "ac_only", "doacs")
+    #NOTE: outcomes for when want to run without sensitivity analysis
     outcomes = c("covid_death", "covid_hospitalisation")
+    #outcomes = c("covid_death_primary_dx", "covid_hospitalisation_primary_dx")
+    #outcomes = c("covid_death", "covid_hospitalisation", "covid_death_primary_dx", "covid_hospitalisation_primary_dx")
     
     #setup tables for exposure comparison
     exp_comp_basic = data.frame()
@@ -560,16 +812,18 @@ for (cut_off in cohort_end_dates){
       #check that data filtering has worked for the exposure
       print(paste("Rows post filter for ", exposure, " :", nrow(data)))
       
+      #define target variables to include
       target_variables = c(exposure, "age_z", "female", "ethnicity_cat", "region_cat", "imd_decile_cat",
-                           "congestive_heart_failure_chads", "hypertension_chads", "vascular_disease_chads", "diabetes_chads", 
-                           "liver_disease_hasbled", "renal_disease_hasbled", "alcohol_hasbled", "stroke_hasbled", "bleeding_hasbled", "uncontrolled_hypertension_hasbled", "antihypertensives", "lipid_regulating_drugs", 
-                           "proton_pump_inhibitors", "nsaids", "corticosteroids", "other_immunosuppressants", "bmi_z", "smoking_status", "vaccine_status")
+                           "congestive_heart_failure_chads", "hypertension_chads", "vascular_disease_chads", "diabetes_chads",
+                           "renal_disease_hasbled", "liver_disease_hasbled", "alcohol_hasbled", "stroke_hasbled", "bleeding_hasbled", "uncontrolled_hypertension_hasbled", "fall",
+                           "antihypertensives", "lipid_regulating_drugs", "proton_pump_inhibitors", "nsaids", "corticosteroids", "other_immunosuppressants", "bmi_z", "smoking_status", "vaccine_status")
       
-      #for correlation analysis
+      #for correlation test
       target_variables_numeric = c("age_z", "female", "eth_white", "eth_asian", "eth_black", "eth_mixed", "eth_other", "reg_se","reg_nw", "reg_ee", "reg_sw", "reg_yh", "reg_wm", "reg_em", "reg_ln", "reg_ne",
                                    "imd_decile","congestive_heart_failure_chads", "hypertension_chads", "vascular_disease_chads", "diabetes_chads",
-                                   "liver_disease_hasbled", "renal_disease_hasbled", "alcohol_hasbled","stroke_hasbled", "bleeding_hasbled", "uncontrolled_hypertension_hasbled","antihypertensives", "lipid_regulating_drugs", 
-                                   "proton_pump_inhibitors", "nsaids", "corticosteroids", "other_immunosuppressants", "bmi_z", "smoking_status", "vaccine_status")
+                                   "renal_disease_hasbled", "liver_disease_hasbled", "alcohol_hasbled","stroke_hasbled", "bleeding_hasbled", "uncontrolled_hypertension_hasbled", "fall", 
+                                   "antihypertensives", "lipid_regulating_drugs", "proton_pump_inhibitors", "nsaids", "corticosteroids", "other_immunosuppressants", "bmi_z", "smoking_status", "vaccine_status")
+      
       
       #remove vaccine status variable from analysis where no vaccines have been administered
       if (cohort_end_date <= as.Date("2020-12-01")) {
@@ -614,7 +868,8 @@ for (cut_off in cohort_end_dates){
         #RUN PROPENSITY SCORE ANALYSIS --------------------
         
         #estimate propensity score
-        prop_covariates = paste(target_variables[2:length(target_variables)], collapse = ' + ')
+        #NOTE - assumes maintain order of target variables so excludes "exposure" at start of list and "vaccine_status" at end of list
+        prop_covariates = paste(target_variables[2:length(target_variables)-1], collapse = ' + ')
         prop_formula = paste(exposure, " ~ ", prop_covariates, sep="")
         prop_md = glm(formula = prop_formula,data = data, family = "binomial")
         

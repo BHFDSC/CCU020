@@ -1,5 +1,3 @@
-#add documentation
-
 build_comparison_plot <- function(exp_comp_data, method = "basic"){
   print(paste("Creating comparison forest plot for ", method, " multivariable regression", sep=""))
   
