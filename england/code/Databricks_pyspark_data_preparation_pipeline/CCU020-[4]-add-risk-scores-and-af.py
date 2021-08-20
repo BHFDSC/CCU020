@@ -14,11 +14,11 @@
 # MAGIC 
 # MAGIC **Reviewer(s)** UNREVIEWED
 # MAGIC  
-# MAGIC **Date last updated** 24-05-2021
+# MAGIC **Date last updated** 19-08-2021
 # MAGIC  
 # MAGIC **Date last reviewed** UNREVIEWED
 # MAGIC  
-# MAGIC **Date last run** 06-05-2021
+# MAGIC **Date last run** 19-08-2021
 # MAGIC  
 # MAGIC **Data input** 
 # MAGIC 
@@ -28,18 +28,6 @@
 # MAGIC **Data output** 
 # MAGIC 
 # MAGIC - ccu020_[cohort_start_date]_study_population_af
-# MAGIC 
-# MAGIC **Software and versions** Python, PySpark
-# MAGIC  
-# MAGIC **Packages and versions** See notebooks
-# MAGIC 
-# MAGIC **Next steps**  
-# MAGIC 
-# MAGIC - Finalise codelists for risk scores  
-# MAGIC 
-# MAGIC - Add bespoke implementations for has bled risk scores and fix has bled loop (add in uncontrolled hypertension)
-# MAGIC 
-# MAGIC - Review whether to extend risk score component lookup to HES
 
 # COMMAND ----------
 
@@ -90,8 +78,6 @@ SELECT *
 FROM dars_nic_391419_j3w9t_collab.{project_prefix}_codelists 
 WHERE codelist = 'bleeding_hasbled' AND system = 'ICD'
 """)
-
-# bleeding_codelist_table = spark.table("global_temp.ccu020_20210628_2020_01_01_bleeding_hasbled_codelist")
 
 bleeding_codelist = list_medcodes(bleeding_codelist_table)
 
@@ -161,7 +147,6 @@ GROUP BY
 # COMMAND ----------
 
 #for AF create global temp view of ids with binary flag if have code from GDPPR
-#NOTE - adding distinct to address possible issue of duplicate values from using MIN(DATE)
 
 spark.sql(f"""
   CREATE OR REPLACE GLOBAL TEMP VIEW {project_prefix}_af_ids AS

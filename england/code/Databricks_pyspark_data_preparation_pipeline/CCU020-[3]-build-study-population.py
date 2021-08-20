@@ -15,15 +15,15 @@
 # MAGIC - Apply demographic inclusion criteria: 
 # MAGIC   - gte 18 at cohort start date and 
 # MAGIC   - Alive  
-# MAGIC   - Age, sex and ethnicity not null 
+# MAGIC   - Age, sex, ethnicity and location not null 
 # MAGIC 
 # MAGIC **Reviewer(s)** UNREVIEWED
 # MAGIC  
-# MAGIC **Date last updated** 24-05-2021
+# MAGIC **Date last updated** 19-08-2021
 # MAGIC  
 # MAGIC **Date last reviewed** UNREVIEWED
 # MAGIC  
-# MAGIC **Date last run** 06-05-2021
+# MAGIC **Date last run** 19-08-2021
 # MAGIC  
 # MAGIC **Data input** 
 # MAGIC 
@@ -33,15 +33,7 @@
 # MAGIC 
 # MAGIC **Data output** 
 # MAGIC 
-# MAGIC - ccu020_[cohort_start_date]_study_population
-# MAGIC 
-# MAGIC **Software and versions** Python, PySpark
-# MAGIC  
-# MAGIC **Packages and versions** See notebooks
-# MAGIC 
-# MAGIC **Next steps** 
-# MAGIC 
-# MAGIC - Confirm new geographic variables have been added correctly
+# MAGIC - ccu020_[cohort_start_date]_study_population_dem
 
 # COMMAND ----------
 
@@ -136,7 +128,6 @@ create_table_pyspark(study_pop_base_table, study_pop_base_table_output_name)
 
 #add age at start of cohort
 import pyspark.sql.functions as f
-# table_name = "global_temp." + project_prefix + "_study_population_" + cohort_start_date_sql
 input_table_name = "dars_nic_391419_j3w9t_collab." + study_pop_base_table_output_name
 age_table_name = project_prefix + "_study_population_" + cohort_start_date_sql + "_age"
 (spark.table(input_table_name)
@@ -177,7 +168,6 @@ create_table_pyspark(study_pop_gte18, study_pop_gte18_output_name)
 # COMMAND ----------
 
 #add lsoa ids
-#NOTE - original code below produced duplicates. Replacement addresses issue where unexpected duplicates when select LSOA codes by date (ref CCU001)
 
 spark.sql(f""" 
 CREATE OR REPLACE GLOBAL TEMP VIEW {project_prefix}_lsoa_ids AS
@@ -265,11 +255,10 @@ FROM dars_nic_391419_j3w9t_collab.{project_prefix}_study_population_alive_age_gt
 LEFT JOIN global_temp.{project_prefix}_geography AS geog ON pop.NHS_NUMBER_DEID = geog.NHS_NUMBER_DEID
 """)
 
-# FROM global_temp.{project_prefix}_study_population_{cohort_start_date_sql}_age as pop
 
 # COMMAND ----------
 
-#save study population geography table - will not need to be added to study flow calculation but helpful to check for errors
+#save study population geography table
 study_pop_geog_name = "global_temp." + project_prefix + "_study_population_" + cohort_start_date_sql + "_geography"
 study_pop_geog_table = spark.table(study_pop_geog_name)
 study_pop_geog_table_output_name = project_prefix + "_study_population_geography"
@@ -277,7 +266,7 @@ create_table_pyspark(study_pop_geog_table, study_pop_geog_table_output_name)
 
 # COMMAND ----------
 
-#Additional QC steps with new code (vs CCU001 and CCU002)
+#load table for additional filters
 study_pop_geog_table_pre_qc = spark.table("dars_nic_391419_j3w9t_collab." + study_pop_geog_table_output_name)
 
 # COMMAND ----------
@@ -302,7 +291,6 @@ study_pop_eth_nu = study_pop_eth_nn.filter(study_pop_eth_nn["ethnicity"] != "Unk
 #filter out IDs with sex null or 0 or 9 
 study_pop_sex_nn = study_pop_eth_nu.filter(study_pop_eth_nu["sex"].isNotNull())
 
-#REVIEW IN FINAL PIPELINE AND TRY AND ADDRESS UNEXPECTED BEHAVIOUR WHEN USE OR OPERATER
 #remove 9
 study_pop_sex_n9 = study_pop_sex_nn.filter( study_pop_sex_nn["sex"] != "9" ) 
 

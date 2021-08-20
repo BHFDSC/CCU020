@@ -1,6 +1,30 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC add documentation...
+# MAGIC **Description** This notebook compiles a set of helper functions and parameters for use across CCU020
+# MAGIC  
+# MAGIC **Project(s)** CCU020 - Evaluation of antithrombotic use and COVID-19 outcomes
+# MAGIC  
+# MAGIC **Author(s)** Alex Handy (building on functions developed by others in the consortium)
+# MAGIC 
+# MAGIC **Approach**
+# MAGIC 
+# MAGIC - This notebook is loaded when each notebook in the analysis pipleine is run, so helper functions and parameters are consistently available
+# MAGIC 
+# MAGIC **Reviewer(s)** UNREVIEWED
+# MAGIC  
+# MAGIC **Date last updated** 19-08-2021
+# MAGIC  
+# MAGIC **Date last reviewed** UNREVIEWED
+# MAGIC  
+# MAGIC **Date last run** 19-08-2021
+# MAGIC  
+# MAGIC **Data input** 
+# MAGIC 
+# MAGIC - manual parameters
+# MAGIC 
+# MAGIC **Data output** 
+# MAGIC 
+# MAGIC - n/a
 
 # COMMAND ----------
 
@@ -8,10 +32,9 @@
 import datetime
 from dateutil.relativedelta import relativedelta
 
-#LAST FULL RUN: cohort start date 1st July 2020 (1st Jan 2021 next)
+#LAST FULL RUN: cohort start date 1st Jan 2020
 
-project_prefix = "ccu020_20210701_2021_01_01"
-#This batch id led implementation may be replaced by study specific snapshots - however, all versioning is handled through this batch id anyway so no clear advantage to creating study specific snapshots (e.g. can only capture month by month batch variation - CONFIRM WITH SAM)
+project_prefix = "ccu020_20210816_2020_01_01"
 # batch_id_feb = "24bac3b5-8986-43b4-b801-6480d5e66e31" #February Update
 # batch_id_apr = "37ccf7c6-5553-4002-9f1b-d1865a04d27a" #April Update
 batch_id = "5ceee019-18ec-44cc-8d1d-1aac4b4ec273" #May update
@@ -22,7 +45,7 @@ datawrang_database_name = "dars_nic_391419_j3w9t_collab"
 production_date = datetime.datetime.now()
 
 #CCU020-[3]-build-study-population
-cohort_start_date = '2021-01-01'
+cohort_start_date = '2020-01-01'
 cohort_end_date = '2021-05-01'
 #for use in sql table names, not date logic
 cohort_start_date_sql = cohort_start_date.replace("-", "_")

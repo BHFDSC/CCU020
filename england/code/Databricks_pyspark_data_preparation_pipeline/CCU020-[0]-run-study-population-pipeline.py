@@ -14,23 +14,15 @@
 # MAGIC 
 # MAGIC **Reviewer(s)** UNREVIEWED
 # MAGIC  
-# MAGIC **Date last updated** 09-06-2021
+# MAGIC **Date last updated** 19-08-2021
 # MAGIC  
 # MAGIC **Date last reviewed** UNREVIEWED
 # MAGIC  
-# MAGIC **Date last run** 09-06-2021
+# MAGIC **Date last run** 19-08-2021
 # MAGIC  
 # MAGIC **Data input** Notebooks in CCU020
 # MAGIC 
 # MAGIC **Data output** ccu020_[cohort_start_date]_study_population_cov on collab data storage
-# MAGIC 
-# MAGIC **Software and versions** Python, PySpark
-# MAGIC  
-# MAGIC **Packages and versions** See notebooks
-# MAGIC 
-# MAGIC **Next steps**
-# MAGIC 
-# MAGIC - Confirm final, consistent naming convention across notebooks  
 
 # COMMAND ----------
 

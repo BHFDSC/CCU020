@@ -16,11 +16,11 @@
 # MAGIC 
 # MAGIC **Reviewer(s)** UNREVIEWED
 # MAGIC  
-# MAGIC **Date last updated** 06-05-2021
+# MAGIC **Date last updated** 19-08-2021
 # MAGIC  
 # MAGIC **Date last reviewed** UNREVIEWED
 # MAGIC  
-# MAGIC **Date last run** 06-05-2021
+# MAGIC **Date last run** 19-08-2021
 # MAGIC  
 # MAGIC **Data input** 
 # MAGIC 
@@ -29,8 +29,6 @@
 # MAGIC - dars_nic_391419_j3w9t_collab.hes_op_all_years_archive  
 # MAGIC - dars_nic_391419_j3w9t_collab.gdppr_dars_nic_391419_j3w9t_archive
 # MAGIC - dars_nic_391419_j3w9t_collab.deaths_dars_nic_391419_j3w9t_archive  
-# MAGIC 
-# MAGIC For presence table (to be reviewed)
 # MAGIC - dars_nic_391419_j3w9t.deaths_dars_nic_391419_j3w9t
 # MAGIC - dars_nic_391419_j3w9t.sgss_dars_nic_391419_j3w9t
 # MAGIC 
@@ -39,15 +37,8 @@
 # MAGIC - ccu020_[cohort_start_date]_patient_skinny_unassembled
 # MAGIC - ccu020_[cohort_start_date]_patient_dataset_presence_lookups
 # MAGIC 
-# MAGIC **Software and versions** Python, PySpark
-# MAGIC  
-# MAGIC **Packages and versions** See notebooks
-# MAGIC 
-# MAGIC **Next steps**
-# MAGIC 
-# MAGIC - Review whether more efficient or robust to create additional pre-processing step where preserve codelists at set cutoff date (see CCU001) - current implementation relies on batch ids to control version access 
-# MAGIC 
-# MAGIC - Clarify use of non collab tables for SGSS and Deaths in presence table
+# MAGIC **Other notes**
+# MAGIC - For any ongoing evaluations, review using archive versions of deaths and sgss data tables (maintained these as this was the implementation from the original descriptive paper)
 
 # COMMAND ----------
 

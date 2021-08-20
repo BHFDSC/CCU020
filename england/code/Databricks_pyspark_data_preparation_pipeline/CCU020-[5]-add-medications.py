@@ -14,11 +14,11 @@
 # MAGIC 
 # MAGIC **Reviewer(s)** UNREVIEWED
 # MAGIC  
-# MAGIC **Date last updated** 24-05-2021
+# MAGIC **Date last updated** 19-08-2021
 # MAGIC  
 # MAGIC **Date last reviewed** UNREVIEWED
 # MAGIC  
-# MAGIC **Date last run** 06-05-2021
+# MAGIC **Date last run** 19-08-2021
 # MAGIC  
 # MAGIC **Data input** 
 # MAGIC 
@@ -27,14 +27,6 @@
 # MAGIC **Data output** 
 # MAGIC 
 # MAGIC - ccu020_[cohort_start_date]_study_population_af_meds
-# MAGIC 
-# MAGIC **Software and versions** Python, PySpark
-# MAGIC  
-# MAGIC **Packages and versions** See notebooks
-# MAGIC 
-# MAGIC **Next steps**   
-# MAGIC 
-# MAGIC - Test run new codelist implementation
 
 # COMMAND ----------
 
