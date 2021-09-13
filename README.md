@@ -12,6 +12,8 @@ This study, therefore, set out to conduct the largest scale evaluation of AT use
 
 In addressing these questions, this project will create the software to automatically evaluate antithrombotic use in near real-time across the whole UK population.  This will provide the information to help ensure individuals with AF are given the most effective treatments and confirm whether antithrombotics offer some protection against COVID-19.
 
+Pre-print available [here](https://www.medrxiv.org/content/10.1101/2021.09.03.21263023v1)
+
 ## Project approval
 
 This project has been approved by the CVD-COVID-UK Approvals & Oversight Board (Project ID: CCU020).
